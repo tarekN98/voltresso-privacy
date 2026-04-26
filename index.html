@@ -88,24 +88,21 @@
   <p class="updated">Last updated: April 26, 2026</p>
 
   <div class="highlight">
-    The short version: Voltresso stores all your data locally on your device. We do not collect, sell, or share your personal information with third parties. Your brew logs, recipes, and preferences never leave your phone.
+    The short version: Voltresso securely syncs your data to your private cloud profile via Supabase so you can access it on any device. We do not sell or share your personal information.
   </div>
 
   <h2>1. Information We Collect</h2>
   <p>Voltresso collects the following information that you provide directly:</p>
   <ul>
-    <li><strong>Name and email address</strong> — used to create your in-app profile. Stored locally on your device using AsyncStorage.</li>
-    <li><strong>Brew logs</strong> — espresso shot parameters you record. Stored locally on your device only.</li>
-    <li><strong>Saved recipes and custom recipes</strong> — stored locally on your device only.</li>
-    <li><strong>Machine selection and preferences</strong> — stored locally on your device only.</li>
+    <li><strong>Name and email address</strong> — used to create your in-app profile. Stored securely via Supabase Cloud.</li>
+    <li><strong>Brew logs</strong> — espresso shot parameters you record. Stored securely in your private cloud profile via Supabase.</li>
+    <li><strong>Saved recipes and custom recipes</strong> — Stored securely in your private cloud profile via Supabase.</li>
+    <li><strong>Machine selection and preferences</strong> — Stored securely in your private cloud profile via Supabase.</li>
   </ul>
 
   <h2>2. Information We Do Not Collect</h2>
   <p>We do not collect, transmit, or store any of the following on our servers:</p>
   <ul>
-    <li>Your name or email address</li>
-    <li>Your brew history or logs</li>
-    <li>Your recipe library</li>
     <li>Your location</li>
     <li>Device identifiers or analytics</li>
     <li>Usage patterns or behavioral data</li>
@@ -128,7 +125,7 @@
 
   <h2>5. Data Storage and Security</h2>
   <p>
-    All personal data (name, email, brew logs, recipes, preferences) is stored exclusively on your device using React Native AsyncStorage. This data is subject to your device's built-in security (encryption, passcode protection). We do not have access to this data and cannot recover it if your device is reset.
+    All personal data (name, email, brew logs, recipes, preferences) is stored securely using Supabase (Postgres) with industry-standard encryption. This data is subject to your device's built-in security (encryption, passcode protection). Since your data is synced to your private profile, you can recover your records simply by logging back into your account.
   </p>
 
   <h2>6. Children's Privacy</h2>
@@ -142,9 +139,7 @@
   </p>
 
   <h2>8. Your Rights</h2>
-  <p>
-    Since all your data is stored locally on your device, you have full control over it. You can delete all Voltresso data at any time by uninstalling the app. This permanently removes all locally stored data.
-  </p>
+  <p>You have full control over your data. You can delete your account and all associated records at any time within the app. This permanently removes your data from our Supabase database.</p>
 
   <h2>9. Contact Us</h2>
   <p>
