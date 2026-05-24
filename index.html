@@ -68,6 +68,24 @@
       font-size: 15px;
       color: #FFFFFF;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+    th {
+      text-align: left;
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-bottom: 1px solid #2A2A35;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #1A1A25;
+      vertical-align: top;
+    }
     .contact {
       margin-top: 48px;
       padding-top: 24px;
@@ -85,68 +103,170 @@
   </div>
 
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: April 26, 2026</p>
+  <p class="updated">Last updated: May 24, 2026</p>
 
   <div class="highlight">
-    The short version: Voltresso securely syncs your data to your private cloud profile via Supabase so you can access it on any device. We do not sell or share your personal information.
+    The short version: Voltresso securely syncs your data to your private cloud profile. We collect anonymous crash reports and usage analytics to improve the app — you can opt out of analytics at any time in Settings. We do not sell or share your personal information.
   </div>
 
   <h2>1. Information We Collect</h2>
   <p>Voltresso collects the following information that you provide directly:</p>
   <ul>
-    <li><strong>Name and email address</strong> — used to create your in-app profile. Stored securely via Supabase Cloud.</li>
-    <li><strong>Brew logs</strong> — espresso shot parameters you record. Stored securely in your private cloud profile via Supabase.</li>
-    <li><strong>Saved recipes and custom recipes</strong> — Stored securely in your private cloud profile via Supabase.</li>
-    <li><strong>Machine selection and preferences</strong> — Stored securely in your private cloud profile via Supabase.</li>
+    <li><strong>Name and email address</strong> — used to create your in-app profile. Stored securely via Supabase.</li>
+    <li><strong>Brew logs</strong> — espresso shot parameters you record. Synced to your private cloud profile via Supabase.</li>
+    <li><strong>Custom and saved recipes</strong> — recipes you create or save. Synced to your private cloud profile via Supabase.</li>
+    <li><strong>Viewed beans</strong> — bean origins you've browsed, used to personalise recommendations. Synced via Supabase.</li>
+    <li><strong>User settings and preferences</strong> — including machine selection, haptics, and notification preferences. Synced via Supabase.</li>
+    <li><strong>Scanned bag data</strong> — product name, brand, and roast date of coffee bags you scan. Stored locally on your device.</li>
+    <li><strong>AI message count</strong> — the number of Volt AI messages you have sent is stored for rate-limiting purposes. Message <em>content</em> is never stored on our servers.</li>
   </ul>
 
-  <h2>2. Information We Do Not Collect</h2>
-  <p>We do not collect, transmit, or store any of the following on our servers:</p>
-  <ul>
-    <li>Your location</li>
-    <li>Device identifiers or analytics</li>
-    <li>Usage patterns or behavioral data</li>
-  </ul>
-
-  <h2>3. AI Chat (Volt AI)</h2>
+  <h2>2. Anonymous Analytics (PostHog)</h2>
   <p>
-    The Volt AI feature sends your chat messages to Anthropic's API to generate responses. Messages sent to Volt AI are processed by Anthropic in accordance with their
+    We collect anonymous usage analytics via <strong>PostHog</strong> to understand how the app is used and to improve it. Analytics data does <em>not</em> include your name, email address, or any personally identifying information.
+  </p>
+  <p>
+    Examples of events collected: which screens are viewed, which features are used, and general in-app interaction patterns. No personal data is attached to these events.
+  </p>
+  <p>
+    <strong>You can disable analytics at any time</strong> in the app under <em>Settings → Analytics</em>. When disabled, no PostHog events are sent.
+  </p>
+
+  <h2>3. Crash Reporting (Sentry)</h2>
+  <p>
+    Voltresso uses <strong>Sentry</strong> for automatic crash reporting. When the app crashes or encounters an unexpected error, Sentry collects:
+  </p>
+  <ul>
+    <li>Device type and operating system version</li>
+    <li>App version</li>
+    <li>Stack trace of the error</li>
+  </ul>
+  <p>
+    Crash reports do not include your name, email address, brew logs, or any personal data. They are used solely to identify and fix bugs.
+  </p>
+
+  <h2>4. AI Chat (Volt AI)</h2>
+  <p>
+    The Volt AI feature sends your chat messages to <strong>Anthropic's API</strong> to generate responses. Messages sent to Volt AI are processed by Anthropic in accordance with their
     <a href="https://www.anthropic.com/privacy" target="_blank">Privacy Policy</a>.
     We do not store your chat history on our servers. Chat history exists only in your device's session memory and is cleared when you close the app.
   </p>
   <p>
     Your selected espresso machine context is included in AI requests to provide relevant advice. This is limited to the machine name and its technical parameters.
   </p>
+  <p>
+    The number of AI messages you send per day is stored for rate-limiting purposes only. Message content is never stored.
+  </p>
 
-  <h2>4. Push Notifications</h2>
+  <h2>5. Subscription Management (RevenueCat)</h2>
+  <p>
+    Voltresso Pro subscriptions are managed via <strong>RevenueCat</strong> in conjunction with the Apple App Store and Google Play Store. RevenueCat tracks your subscription status so the app can unlock Pro features.
+  </p>
+  <p>
+    We do not store your credit card or payment details — all billing is handled entirely by Apple or Google. RevenueCat only receives an anonymous subscriber identifier and your subscription status.
+  </p>
+
+  <h2>6. Barcode Scanning (Open Food Facts)</h2>
+  <p>
+    When you scan a coffee bag barcode, the barcode number is sent to the <strong>Open Food Facts</strong> public API (<a href="https://openfoodfacts.org" target="_blank">openfoodfacts.org</a>) to look up product information such as the brand and product name. No personal data is included in this request.
+  </p>
+
+  <h2>7. Push Notifications</h2>
   <p>
     Voltresso may request permission to send you push notifications with brew reminders and barista tips. You can grant or revoke this permission at any time in your device's Settings. We do not use push notifications for advertising or marketing purposes.
   </p>
 
-  <h2>5. Data Storage and Security</h2>
+  <h2>8. Data Storage and Security</h2>
   <p>
-    All personal data (name, email, brew logs, recipes, preferences) is stored securely using Supabase (Postgres) with industry-standard encryption. This data is subject to your device's built-in security (encryption, passcode protection). Since your data is synced to your private profile, you can recover your records simply by logging back into your account.
+    All personal data (name, email, brew logs, recipes, preferences) is stored securely using Supabase (Postgres) with industry-standard encryption. Since your data is synced to your private profile, you can recover your records simply by logging back into your account.
   </p>
 
-  <h2>6. Children's Privacy</h2>
+  <h2>9. Data Retention</h2>
   <p>
-    Voltresso is not directed at children under 13 years of age. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us at the address below.
+    When you delete your account, all personal data associated with your account is <strong>permanently deleted immediately</strong> from our Supabase database. There is no grace period or delayed deletion.
+  </p>
+  <p>
+    Anonymised analytics data collected via PostHog and crash reports collected via Sentry may be retained in aggregated or anonymised form after account deletion, as they cannot be linked back to you.
   </p>
 
-  <h2>7. Changes to This Policy</h2>
+  <h2>10. GDPR Legal Basis for Processing (EU Users)</h2>
+  <p>
+    If you are located in the European Union, we process your data under the following legal bases (GDPR Article 6):
+  </p>
+  <ul>
+    <li><strong>Account data (name, email)</strong> — Contract performance (Article 6(1)(b)): necessary to provide the service.</li>
+    <li><strong>Brew logs, recipes, preferences</strong> — Contract performance (Article 6(1)(b)): core app functionality.</li>
+    <li><strong>Anonymous analytics (PostHog)</strong> — Legitimate interests (Article 6(1)(f)): improving the app. You may opt out at any time in Settings.</li>
+    <li><strong>Crash reports (Sentry)</strong> — Legitimate interests (Article 6(1)(f)): maintaining app stability and security.</li>
+    <li><strong>AI processing (Anthropic)</strong> — Contract performance (Article 6(1)(b)): delivering the Volt AI feature you request.</li>
+    <li><strong>Push notifications</strong> — Consent (Article 6(1)(a)): only sent if you grant permission.</li>
+  </ul>
+
+  <h2>11. Sub-Processors</h2>
+  <p>We rely on the following third-party service providers to operate Voltresso:</p>
+  <table>
+    <tr>
+      <th>Provider</th>
+      <th>Purpose</th>
+      <th>Location</th>
+    </tr>
+    <tr>
+      <td>Supabase</td>
+      <td>Database, authentication, cloud sync</td>
+      <td>EU / US</td>
+    </tr>
+    <tr>
+      <td>Anthropic</td>
+      <td>AI chat (Volt AI)</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>RevenueCat</td>
+      <td>Subscription management</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>PostHog</td>
+      <td>Anonymous usage analytics</td>
+      <td>EU / US</td>
+    </tr>
+    <tr>
+      <td>Sentry</td>
+      <td>Crash reporting</td>
+      <td>US</td>
+    </tr>
+    <tr>
+      <td>Open Food Facts</td>
+      <td>Barcode product lookup</td>
+      <td>EU</td>
+    </tr>
+    <tr>
+      <td>Expo (Expo Go / EAS)</td>
+      <td>App build and delivery infrastructure</td>
+      <td>US</td>
+    </tr>
+  </table>
+
+  <h2>12. Children's Privacy</h2>
+  <p>
+    Voltresso is not directed at children under 13 years of age (in accordance with COPPA). In the European Union, users must be at least 16 years old, or have verifiable parental or guardian consent, to create an account (in accordance with GDPR Article 8). We do not knowingly collect personal information from children below these age thresholds. If you believe a child has provided us with personal information without consent, please contact us and we will delete the information promptly.
+  </p>
+
+  <h2>13. Your Rights</h2>
+  <p>You have full control over your data. You can delete your account and all associated records at any time within the app (Profile → Delete Account). This permanently removes your data from our Supabase database immediately.</p>
+  <p>If you are in the EU, you also have the right to access, correct, port, or object to processing of your data. To exercise these rights, contact us at the address below.</p>
+
+  <h2>14. Changes to This Policy</h2>
   <p>
     We may update this Privacy Policy from time to time. The updated version will be indicated by a revised date at the top of this page. We encourage you to review this policy periodically.
   </p>
 
-  <h2>8. Your Rights</h2>
-  <p>You have full control over your data. You can delete your account and all associated records at any time within the app. This permanently removes your data from our Supabase database.</p>
-
-  <h2>9. Contact Us</h2>
+  <h2>15. Contact Us</h2>
   <p>
     If you have any questions about this Privacy Policy, please contact us at:
   </p>
   <p>
-    <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>
+    <a href="mailto:voltresso@zoho.eu">voltresso@zoho.eu</a>
   </p>
 
   <div class="contact">
