@@ -1,280 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Voltresso — Terms of Service</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Voltresso</title>
+  <meta name="description" content="Voltresso's terms of service: the agreement between you and Voltresso when you use the app or website.">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #08090F;
+      --card: #12131C;
+      --t1: #F0F1F8;
+      --t2: #A0A4B0;
+      --t3: #6E7280;
+      --blue: #1A6BFF;
+      --blue-mid: #4D9FFF;
+      --line: rgba(255,255,255,0.08);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --font-mono: 'SF Mono', Consolas, ui-monospace, monospace;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0A0A0F;
-      color: #C8C8D0;
+      background: var(--bg);
+      color: var(--t1);
+      font-family: var(--font-body);
+      font-size: 16px;
       line-height: 1.7;
-      padding: 40px 24px 80px;
-      max-width: 720px;
-      margin: 0 auto;
+      padding: 48px 24px 96px;
+      -webkit-font-smoothing: antialiased;
     }
-    .logo { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
-    .logo-mark {
-      width: 40px; height: 40px;
-      background: #1A6BFF22; border: 1.5px solid #1A6BFF;
-      border-radius: 10px; display: flex; align-items: center;
-      justify-content: center; font-size: 20px;
+    .container { max-width: 760px; margin: 0 auto; }
+    header { padding-bottom: 32px; border-bottom: 1px solid var(--line); margin-bottom: 48px; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: var(--blue-mid);
+      text-transform: uppercase;
+      margin-bottom: 12px;
     }
-    .logo-name { font-size: 18px; font-weight: 700; color: #FFFFFF; letter-spacing: 4px; }
-    h1 { font-size: 28px; font-weight: 700; color: #FFFFFF; margin-bottom: 8px; }
-    .updated { font-size: 13px; color: #6E6E7A; margin-bottom: 40px; }
-    h2 { font-size: 17px; font-weight: 600; color: #FFFFFF; margin: 32px 0 10px; }
-    p { margin-bottom: 14px; }
-    ul { padding-left: 20px; margin-bottom: 14px; }
-    li { margin-bottom: 6px; }
-    a { color: #1A6BFF; }
-    .highlight {
-      background: #1A6BFF11; border: 1px solid #1A6BFF33;
-      border-radius: 10px; padding: 16px 20px; margin: 24px 0;
-      font-size: 15px; color: #FFFFFF;
+    h1 { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px; }
+    .effective { color: var(--t3); font-size: 14px; font-family: var(--font-mono); }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 48px;
+      margin-bottom: 18px;
+      color: var(--t1);
+      letter-spacing: -0.01em;
     }
-    .contact {
-      margin-top: 48px; padding-top: 24px;
-      border-top: 1px solid #2A2A35; font-size: 13px; color: #6E6E7A;
+    h3 { font-size: 17px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: var(--t1); }
+    p { color: var(--t2); margin-bottom: 14px; }
+    ul, ol { color: var(--t2); margin-bottom: 16px; padding-left: 24px; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--t1); font-weight: 600; }
+    a { color: var(--blue-mid); text-decoration: none; border-bottom: 1px solid rgba(77,159,255,0.3); }
+    a:hover { border-bottom-color: var(--blue-mid); }
+    code { font-family: var(--font-mono); font-size: 13px; background: var(--card); padding: 2px 6px; border-radius: 4px; color: var(--t1); }
+    .note { background: var(--card); padding: 18px 20px; border-left: 3px solid var(--blue); border-radius: 6px; margin: 18px 0; }
+    .note p:last-child { margin-bottom: 0; }
+    .intro {
+      background: var(--card);
+      padding: 18px 20px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: var(--t2);
     }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--t3); font-size: 13px; font-family: var(--font-mono); }
+    footer a { color: var(--t3); }
   </style>
 </head>
 <body>
-  <div class="logo">
-    <div class="logo-mark">⚡</div>
-    <span class="logo-name">VOLTRESSO</span>
-  </div>
+<div class="container">
 
+<header>
+  <div class="eyebrow">VOLTRESSO</div>
   <h1>Terms of Service</h1>
-  <p class="updated">Last updated: June 5, 2026</p>
+  <p class="effective">Effective: June 21, 2026 · Last updated: June 21, 2026</p>
+</header>
 
-  <div class="highlight">
-    By using Voltresso, you agree to these terms. Please read them carefully. These terms comply with applicable consumer laws, GDPR, and digital service standards.
-  </div>
+<div class="intro">
+By using Voltresso, you agree to these terms. Please read them carefully. These terms comply with applicable consumer laws, GDPR, and digital service standards.
+</div>
 
-  <h2>1. Acceptance of Terms</h2>
-  <p>By downloading, installing, or using the Voltresso application ("the App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+<h2>1. Acceptance of Terms</h2>
+<p>Voltresso is an independent project operated by <strong>Tarek Sayed</strong>, an independent solo developer currently resident in <strong>Serbia</strong> ("we", "us", or "Voltresso"). Voltresso is not a registered company; it is operated by an individual as a personal project. By downloading, installing, or using the Voltresso application ("the App"), creating a Voltresso account, or using the Voltresso website at <a href="https://voltresso.vercel.app">voltresso.vercel.app</a>, you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
 
-  <h2>2. Description of Service</h2>
-  <p>Voltresso is an espresso training and brew guide application that provides:</p>
-  <ul>
-    <li>Espresso brew guides and parameters calibrated to specific machines</li>
-    <li>AI-powered barista advice via the Volt AI assistant</li>
-    <li>Bean origin information and exploration tools</li>
-    <li>Personal brew log tracking</li>
-    <li>Recipe management including user-created recipes</li>
-    <li>Coffee bag scanning and freshness tracking</li>
-    <li>User account management and profile customisation</li>
-  </ul>
+<h2>2. Description of Service</h2>
+<p>Voltresso is an espresso training and brew guide application that provides:</p>
+<ul>
+  <li>Espresso brew guides and parameters calibrated to specific machines</li>
+  <li>Volt, an in-app brewing companion (available in free and optional Pro tiers)</li>
+  <li>Bean origin information and exploration tools</li>
+  <li>Personal brew log tracking</li>
+  <li>Recipe management including user-created recipes</li>
+  <li>Coffee bag scanning and freshness tracking</li>
+  <li>User account management and profile customisation</li>
+</ul>
 
-  <h2>3. User Accounts</h2>
-  <p>You must create an account to use Voltresso. We use Supabase for secure authentication and cloud data management. You are responsible for:</p>
-  <ul>
-    <li>Maintaining the confidentiality of your account credentials</li>
-    <li>All activity that occurs under your account</li>
-    <li>Providing accurate and complete registration information</li>
-    <li>Notifying us immediately of any unauthorised use of your account</li>
-  </ul>
-  <p>You must be at least 13 years old to create an account. Users in the EU must be at least 16 years old or have parental consent.</p>
+<h2>3. User Accounts</h2>
+<p>You must create an account to use Voltresso. We use Supabase for secure authentication and cloud data management. You are responsible for:</p>
+<ul>
+  <li>Maintaining the confidentiality of your account credentials</li>
+  <li>All activity that occurs under your account</li>
+  <li>Providing accurate and complete registration information</li>
+  <li>Notifying us immediately of any unauthorised use of your account</li>
+</ul>
+<p>You must be at least <strong>18 years old</strong> to create an account. By signing up, you confirm that you are 18 or older. We do not knowingly collect personal information from anyone under 18; if we learn that we have, we will delete it.</p>
+<p>One person per account. You may not share, transfer, or sell your Voltresso account.</p>
 
-  <h2>4. Acceptable Use</h2>
-  <p>You agree not to:</p>
-  <ul>
-    <li>Use the App for any unlawful, fraudulent, or harmful purpose;</li>
-    <li>Reverse engineer, decompile, disassemble, or attempt to derive the source
-        code of the App, except where this restriction is prohibited by law;</li>
-    <li>Use bots, scrapers, crawlers, or any automated means to access, copy, or
-        extract data or content from the App or its underlying APIs;</li>
-    <li>Circumvent, disable, or interfere with rate limits, security features, or
-        access controls — including those applying to the Volt AI assistant;</li>
-    <li>Probe, scan, or test the vulnerability of the App or its infrastructure,
-        or breach any security or authentication measures;</li>
-    <li>Resell, sublicense, rent, or commercially exploit the App or its content
-        without our written permission;</li>
-    <li>Upload content that is offensive, harmful, or infringes third-party
-        rights, or impersonate any person or entity.</li>
-  </ul>
+<h2>4. Acceptable Use</h2>
+<p>You agree not to:</p>
+<ul>
+  <li>Use the App for any unlawful, fraudulent, or harmful purpose;</li>
+  <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App, except where this restriction is prohibited by law;</li>
+  <li>Use bots, scrapers, crawlers, or any automated means to access, copy, or extract data or content from the App or its underlying APIs;</li>
+  <li>Circumvent, disable, or interfere with rate limits, security features, or access controls — including those applying to Volt;</li>
+  <li>Probe, scan, or test the vulnerability of the App or its infrastructure, or breach any security or authentication measures;</li>
+  <li>Resell, sublicense, rent, or commercially exploit the App or its content without our written permission;</li>
+  <li>Upload content that is offensive, harmful, or infringes third-party rights, or impersonate any person or entity;</li>
+  <li>Use Volt to generate content that violates Anthropic's Acceptable Use Policy, including content that promotes harm, generates abusive material, or attempts prompt injection.</li>
+</ul>
 
-  <h2>5. AI-Powered Features (Volt AI)</h2>
-  <p>The Volt AI assistant is powered by Anthropic's Claude API. Please note:</p>
-  <ul>
-    <li>AI responses are for informational and educational purposes only</li>
-    <li>AI-generated advice should not replace professional guidance</li>
-    <li>We are not responsible for decisions made based on AI responses</li>
-    <li>Chat messages are processed by Anthropic subject to their terms and privacy policy</li>
-    <li>The number of AI messages you send may be subject to daily rate limits depending on your subscription tier</li>
-  </ul>
+<h2>5. AI-Powered Features (Volt)</h2>
+<p>Voltresso includes <strong>Volt</strong>, an in-app brewing companion available in two tiers:</p>
+<ul>
+  <li><strong>Volt Local</strong> (free, default): Runs entirely on your device using deterministic, on-device logic. It does not send your messages or any data to external AI services. Your conversations with Volt Local never leave your phone.</li>
+  <li><strong>Volt Pro</strong> (paid subscription, planned for a future release): When activated, Volt Pro routes your messages through our server proxy to Anthropic's Claude API for AI-assisted brewing advice.</li>
+</ul>
 
-  <h2>6. Intellectual Property</h2>
-  <p>All content in the App — including brew guides, recipes, bean information, design, and code — is owned by Voltresso or its licensors. You may not reproduce, distribute, or create derivative works without written permission.</p>
-  <p>User-created recipes remain your property. By creating them in the App, you grant Voltresso a limited licence to store and display them to you within the App.</p>
+<div class="note">
+<p><strong>Important: Volt provides brewing guidance, not professional advice.</strong></p>
+<ul>
+  <li>Volt's responses are provided for informational and educational purposes only</li>
+  <li>Volt's advice should not replace professional guidance, equipment manufacturer instructions, or medical, dietary, or health advice</li>
+  <li>We are not responsible for decisions made based on Volt's responses</li>
+  <li>For Volt Pro, chat messages are processed by Anthropic subject to their terms and retention policies (currently up to 30 days for trust and safety review under Anthropic's standard API plan)</li>
+  <li>Volt usage may be subject to rate limits depending on tier and prevailing fair-use policies</li>
+</ul>
+<p>If Volt's advice contradicts your equipment manufacturer's instructions, follow the manufacturer.</p>
+</div>
 
-  <h2>7. User-Generated Content</h2>
-  <p>
-    You may add content to the App, including manually entered or scanned coffee bag information (product names, brands, roast dates) and custom brew recipes. You are solely responsible for the accuracy of content you add.
-  </p>
-  <p>
-    Scanned bag data is stored locally on your device and is not shared with other users. You can delete any saved bag at any time from the Bag Freshness section of the App.
-  </p>
-  <p>
-    By submitting user-generated content, you confirm that you have the right to provide such content and that it does not violate any applicable law or third-party rights.
-  </p>
+<h2>6. Intellectual Property</h2>
+<p>All content in the App — including brew guides, recipes, bean information, machine database, scoring algorithms, Volt's brewing knowledge base, design, and code — is owned by Voltresso or its licensors. You may not reproduce, distribute, or create derivative works without written permission.</p>
+<p>User-created recipes and content remain your property. By creating them in the App, you grant Voltresso a limited, non-exclusive, royalty-free licence to store and display them to you within the App.</p>
+<p>Coffee machine names, bean variety names, brewing method names, and similar references in Voltresso are descriptive references to real-world things — they are not claims of ownership over those brands.</p>
 
-  <h2>8. Voltresso Pro Subscription</h2>
-  <p>Voltresso offers an optional Pro subscription that unlocks additional features. The following terms apply:</p>
-  <ul>
-    <li><strong>Plans available:</strong> Monthly, Annual, and Lifetime (one-time purchase), as displayed in the App at the time of purchase.</li>
-    <li><strong>Billing:</strong> Subscriptions are billed through the Apple App Store or Google Play Store, depending on your platform. Prices are shown in your local currency at checkout.</li>
-    <li><strong>Auto-renewal:</strong> Monthly and Annual plans auto-renew unless cancelled at least 24 hours before the end of the current billing period.</li>
-    <li><strong>Cancellation:</strong> You may cancel your subscription at any time through your App Store or Google Play account settings. Cancellation takes effect at the end of the current paid period — you will retain Pro access until then.</li>
-    <li><strong>Refunds:</strong> Refund requests are handled by Apple or Google in accordance with their respective refund policies. Voltresso does not process refunds directly.</li>
-    <li><strong>Free features:</strong> Core app features remain accessible without a Pro subscription. Cancelling Pro does not delete your data.</li>
-    <li><strong>Lifetime purchase:</strong> A Lifetime purchase grants permanent Pro access for the duration of the App's availability. This is a one-time payment with no recurring charges.</li>
-  </ul>
+<h2>7. User-Generated Content</h2>
+<p>You may add content to the App, including manually entered or scanned coffee bag information (product names, brands, roast dates), custom brew recipes, brew log tasting notes, your display name, and your avatar image. You are solely responsible for the accuracy and legality of content you add.</p>
+<p>By submitting user-generated content, you confirm that:</p>
+<ul>
+  <li>You own or have the right to provide such content</li>
+  <li>Your content does not violate any applicable law or third-party rights</li>
+  <li>Your content does not contain malware, abusive material, or content harmful to others</li>
+</ul>
+<p>Scanned coffee bag data is stored locally on your device and is not shared with other users. You can delete any saved bag at any time from the Bag Freshness section of the App.</p>
+<p>If you upload an avatar photo, you grant Voltresso the right to store and serve it as part of the Service. Avatar images are stored in a publicly-readable storage bucket — see our <a href="index.html">Privacy Policy</a> for details.</p>
+<p>We may remove content that violates these Terms, applicable law, or that we reasonably believe could cause harm.</p>
 
-  <h2>9. Privacy</h2>
-  <p>Your use of the App is governed by our <a href="https://tarekn98.github.io/voltresso-privacy">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
+<h2>8. Voltresso Pro Subscription</h2>
+<div class="note">
+<p><strong>Voltresso Pro is planned for a future release and is not currently available for purchase.</strong> The terms below describe Pro features as they will apply once activated. The current launch of Voltresso offers all features at no cost. We will provide reasonable notice in the app before Pro becomes available for purchase.</p>
+</div>
+<p>Voltresso offers an optional Pro subscription that unlocks additional features. The following terms will apply when Pro becomes available:</p>
+<ul>
+  <li><strong>Plans available</strong>: Monthly, Annual, and Lifetime (one-time purchase), as displayed in the App at the time of purchase.</li>
+  <li><strong>Billing</strong>: Subscriptions will be billed through Google Play Store on Android (with Apple App Store added when iOS becomes available). Prices are shown in your local currency at checkout.</li>
+  <li><strong>Auto-renewal</strong>: Monthly and Annual plans auto-renew unless cancelled at least 24 hours before the end of the current billing period.</li>
+  <li><strong>Cancellation</strong>: You may cancel your subscription at any time through your Google Play (or, when available, Apple App Store) account settings. Cancellation takes effect at the end of the current paid period — you will retain Pro access until then.</li>
+  <li><strong>Refunds</strong>: Refund requests are handled by Google (or Apple, when available) in accordance with their respective refund policies. Voltresso does not process refunds directly.</li>
+  <li><strong>Free features</strong>: Core app features remain accessible without a Pro subscription. Cancelling Pro does not delete your data.</li>
+  <li><strong>Lifetime purchase</strong>: A Lifetime purchase grants permanent Pro access for the duration of the App's availability. This is a one-time payment with no recurring charges.</li>
+</ul>
 
-  <h2>10. Disclaimer of Warranties</h2>
-  <p>
-    The App is provided on an <strong>"as is"</strong> and
-    <strong>"as available"</strong> basis, without warranties of any kind, whether
-    express, implied, or statutory. To the maximum extent permitted by applicable
-    law, we expressly disclaim all implied warranties, including the implied
-    warranties of <strong>merchantability</strong>, <strong>fitness for a
-    particular purpose</strong>, <strong>title</strong>, and
-    <strong>non-infringement</strong>.
-  </p>
-  <p>
-    We do not warrant that the App will be error-free, uninterrupted, secure, or
-    free of harmful components, or that defects will be corrected. Espresso
-    parameters, brew guides, and AI-generated advice are provided for educational
-    purposes only — results may vary based on equipment, beans, water, and
-    technique, and you rely on them at your own discretion.
-  </p>
-  <p>
-    The App relies on third-party services (including Supabase, Anthropic,
-    RevenueCat, PostHog, and Open Food Facts). We are not responsible for
-    the availability, accuracy, or performance of those third-party services.
-  </p>
-  <p>
-    Some jurisdictions do not allow the exclusion of certain warranties, so some
-    of the above exclusions may not apply to you. Where this is the case, such
-    warranties are limited to the minimum duration and scope permitted by law.
-  </p>
+<h2>9. Privacy</h2>
+<p>Your use of the App is governed by our <a href="index.html">Privacy Policy</a>, which is incorporated into these Terms by reference.</p>
 
-  <h2>11. Limitation of Liability</h2>
-  <p>
-    To the maximum extent permitted by applicable law, Voltresso and its developer
-    shall not be liable for any indirect, incidental, special, consequential, or
-    punitive damages, or for any loss of data, profits, or goodwill, arising from
-    or related to your use of (or inability to use) the App.
-  </p>
-  <p>
-    To the maximum extent permitted by applicable law, the <strong>total aggregate
-    liability</strong> of Voltresso and its developer for all claims arising out
-    of or relating to the App or these Terms shall not exceed the
-    <strong>greater of</strong> (a) the total amount you paid to Voltresso in the
-    <strong>twelve (12) months</strong> immediately preceding the event giving
-    rise to the claim, or (b) <strong>EUR 50</strong>.
-  </p>
-  <p>
-    <strong>EU users:</strong> Nothing in these Terms excludes or limits our
-    liability where it would be unlawful to do so — including liability for death
-    or personal injury caused by negligence, for fraud, or for any matter that
-    cannot be excluded under mandatory law. Nothing here limits your statutory
-    rights as a consumer under EU law, including the EU Consumer Rights Directive.
-  </p>
+<h2>10. Disclaimer of Warranties</h2>
+<p>The App is provided on an "as is" and "as available" basis, without warranties of any kind, whether express, implied, or statutory. To the maximum extent permitted by applicable law, we expressly disclaim all implied warranties, including the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</p>
+<p>We do not warrant that the App will be error-free, uninterrupted, secure, or free of harmful components, or that defects will be corrected. Espresso parameters, brew guides, machine specifications, bean profiles, and Volt-generated advice are provided for educational purposes only — results may vary based on equipment, beans, water, and technique, and you rely on them at your own discretion.</p>
+<p>The App relies on third-party services (including Supabase, Anthropic, Sentry, PostHog, RevenueCat, Google Custom Search, Google OAuth, Open Food Facts, Expo, Vercel, GitHub Pages, Zoho Mail, and your device's operating system and app store). We are not responsible for the availability, accuracy, or performance of those third-party services.</p>
+<p>Some jurisdictions do not allow the exclusion of certain warranties, so some of the above exclusions may not apply to you. Where this is the case, such warranties are limited to the minimum duration and scope permitted by law.</p>
 
-  <h2>12. Indemnification</h2>
-  <p>You agree to indemnify and hold harmless Voltresso and its developer from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your use of the App, your violation of these Terms, or your infringement of any third-party rights.</p>
+<h2>11. Limitation of Liability</h2>
+<p>To the maximum extent permitted by applicable law, Voltresso and its developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of data, profits, or goodwill, arising from or related to your use of (or inability to use) the App.</p>
+<p>To the maximum extent permitted by applicable law, the total aggregate liability of Voltresso and its developer for all claims arising out of or relating to the App or these Terms shall not exceed the greater of (a) the total amount you paid to Voltresso in the twelve (12) months immediately preceding the event giving rise to the claim, or (b) <strong>EUR 50</strong>.</p>
+<p><strong>EU users</strong>: Nothing in these Terms excludes or limits our liability where it would be unlawful to do so — including liability for death or personal injury caused by negligence, for fraud, or for any matter that cannot be excluded under mandatory law. Nothing here limits your statutory rights as a consumer under EU law, including the EU Consumer Rights Directive.</p>
 
-  <h2>13. EU User Rights (GDPR)</h2>
-  <p>If you are located in the European Union, you have the right to:</p>
-  <ul>
-    <li>Access your personal data</li>
-    <li>Correct inaccurate data</li>
-    <li>Request deletion of your data ("right to be forgotten")</li>
-    <li>Data portability</li>
-    <li>Object to processing</li>
-    <li>Lodge a complaint with your local supervisory authority</li>
-  </ul>
-  <p>To exercise these rights, contact us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>.</p>
+<h2>12. Indemnification</h2>
+<p>You agree to indemnify and hold harmless Voltresso and its developer from any claims, damages, losses, or expenses (including reasonable legal fees) arising from your use of the App, your violation of these Terms, your infringement of any third-party rights, or your misuse of Volt's brewing advice in a way that causes harm or damage.</p>
 
-  <h2>14. Account Deletion</h2>
-  <p>You may delete your account at any time from the Profile section of the App. Upon deletion, all your personal data will be permanently removed from our Supabase servers <strong>immediately</strong>, in accordance with GDPR requirements.</p>
+<h2>13. EU User Rights (GDPR)</h2>
+<p>If you are located in the European Union or United Kingdom, you have the right to:</p>
+<ul>
+  <li>Access your personal data</li>
+  <li>Correct inaccurate data</li>
+  <li>Request deletion of your data ("right to be forgotten")</li>
+  <li>Data portability</li>
+  <li>Object to processing</li>
+  <li>Restrict processing in certain circumstances</li>
+  <li>Withdraw consent at any time for consent-based processing</li>
+  <li>Lodge a complaint with your local supervisory authority</li>
+</ul>
+<p>To exercise these rights, contact us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>. See our <a href="index.html">Privacy Policy</a> for additional rights available to users in other jurisdictions (California, other US states, Canada).</p>
 
-  <h2>15. Changes to Terms</h2>
-  <p>We may update these Terms from time to time. We will notify you of material changes via the App or by email. Continued use after changes constitutes acceptance of the new Terms.</p>
+<h2>14. Account Deletion</h2>
+<p>You may delete your account at any time from the Settings section of the App. Upon deletion, all your personal data held on Voltresso's own systems (Supabase database and storage, including brew logs, custom recipes, saved beans, viewed beans, user settings, avatar images, and aggregate usage counters) will be permanently removed immediately.</p>
+<p>Data held by third-party processors (PostHog, Sentry, Anthropic, and RevenueCat when Pro launches) follows their respective retention policies and is not automatically erased by your in-app account deletion. If you require full erasure across all processors, email <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a> with the subject "Full Erasure Request" and we will initiate the corresponding manual requests on your behalf within 30 days. See our <a href="index.html">Privacy Policy</a> for full details.</p>
 
-  <h2>16. Governing Law &amp; Dispute Resolution</h2>
-  <p>
-    These Terms, and any dispute or claim arising out of or in connection with
-    them or the App, are governed by the laws of the jurisdiction where the
-    developer is based, without regard to its conflict-of-law rules.
-  </p>
-  <p>
-    <strong>Informal resolution first.</strong> Before starting any formal
-    proceeding, you agree to contact us at
-    <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a> and attempt
-    to resolve the dispute informally. We will try in good faith to resolve it
-    within <strong>30 days</strong> of receiving your notice.
-  </p>
-  <p>
-    If the dispute is not resolved informally, it shall be subject to the
-    exclusive jurisdiction of the competent courts of the developer's
-    jurisdiction.
-  </p>
-  <p>
-    <strong>EU consumers:</strong> if you are a consumer resident in the European
-    Union, this choice of law and venue does not deprive you of the protection of
-    the mandatory consumer-protection laws of your country of residence, and you
-    may also bring proceedings in your home courts. You may also use the European
-    Commission's Online Dispute Resolution platform at
-    <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.
-  </p>
+<h2>15. Changes to Terms</h2>
+<p>We may update these Terms from time to time. We will notify you of material changes via the App, by email, or by updating the "Effective" date at the top of this page. Continued use after changes constitutes acceptance of the new Terms. If you don't agree to a change, your remedy is to stop using Voltresso and delete your account.</p>
 
-  <h2>17. General Provisions</h2>
-  <p>
-    <strong>Force majeure.</strong> We are not liable for any failure or delay in
-    performance caused by events beyond our reasonable control, including outages
-    of third-party services, network or hosting failures, acts of God, or
-    governmental action.
-  </p>
-  <p>
-    <strong>Severability.</strong> If any provision of these Terms is found to be
-    unenforceable, that provision will be limited or removed to the minimum extent
-    necessary, and the remaining provisions will remain in full force and effect.
-  </p>
-  <p>
-    <strong>No waiver.</strong> Our failure to enforce any right or provision of
-    these Terms is not a waiver of that right or provision.
-  </p>
-  <p>
-    <strong>Assignment.</strong> You may not assign or transfer these Terms without
-    our prior written consent. We may assign these Terms in connection with a
-    merger, acquisition, or sale of assets.
-  </p>
-  <p>
-    <strong>Entire agreement.</strong> These Terms, together with the Privacy
-    Policy, constitute the entire agreement between you and Voltresso regarding the
-    App and supersede any prior agreements.
-  </p>
-  <p>
-    <strong>Survival.</strong> The sections on Intellectual Property, Disclaimers,
-    Limitation of Liability, Indemnification, Governing Law &amp; Dispute
-    Resolution, and these General Provisions survive termination of your account
-    or these Terms.
-  </p>
+<h2>16. Governing Law &amp; Dispute Resolution</h2>
+<p>These Terms, and any dispute or claim arising out of or in connection with them or the App, are governed by the laws of <strong>Serbia</strong>, the country where the operator is currently resident and from which Voltresso is operated. The conflict-of-law rules of Serbia do not apply. If the operator's place of residence and operations changes in the future, these Terms may be updated to reflect the new applicable jurisdiction, with notice provided to users as described in Section 15.</p>
+<p><strong>Informal resolution first.</strong> Before starting any formal proceeding, you agree to contact us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a> and attempt to resolve the dispute informally. We will try in good faith to resolve it within 30 days of receiving your notice.</p>
+<p>If the dispute is not resolved informally, it shall be subject to the exclusive jurisdiction of the competent courts of Serbia.</p>
+<p><strong>EU consumers</strong>: if you are a consumer resident in the European Union, this choice of law and venue does not deprive you of the protection of the mandatory consumer-protection laws of your country of residence, and you may also bring proceedings in your home courts. You may also use the European Commission's Online Dispute Resolution platform at <a href="https://ec.europa.eu/consumers/odr">ec.europa.eu/consumers/odr</a>.</p>
 
-  <h2>18. Contact</h2>
-  <p>For any questions about these Terms, contact us at:<br>
-  <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a></p>
+<h2>17. General Provisions</h2>
+<p><strong>Force majeure.</strong> We are not liable for any failure or delay in performance caused by events beyond our reasonable control, including outages of third-party services, network or hosting failures, acts of God, or governmental action.</p>
+<p><strong>Severability.</strong> If any provision of these Terms is found to be unenforceable, that provision will be limited or removed to the minimum extent necessary, and the remaining provisions will remain in full force and effect.</p>
+<p><strong>No waiver.</strong> Our failure to enforce any right or provision of these Terms is not a waiver of that right or provision.</p>
+<p><strong>Assignment.</strong> You may not assign or transfer these Terms without our prior written consent. We may assign these Terms in connection with a merger, acquisition, or sale of assets.</p>
+<p><strong>Entire agreement.</strong> These Terms, together with the <a href="index.html">Privacy Policy</a>, constitute the entire agreement between you and Voltresso regarding the App and supersede any prior agreements.</p>
+<p><strong>Survival.</strong> The sections on Intellectual Property (Section 6), Disclaimer of Warranties (Section 10), Limitation of Liability (Section 11), Indemnification (Section 12), Governing Law &amp; Dispute Resolution (Section 16), and these General Provisions (Section 17) survive termination of your account or these Terms.</p>
 
-  <div class="contact">
-    Voltresso &mdash; &copy; 2026. All rights reserved.
-  </div>
+<h2>18. Contact</h2>
+<p>For any questions about these Terms, contact us at:</p>
+<p>Email: <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a></p>
+<p>Postal correspondence address available on written request.</p>
+
+<footer>
+<p>Voltresso · Tarek Sayed · Serbia<br>
+Terms of Service v1.0 · Effective June 21, 2026<br>
+<a href="index.html">Privacy Policy</a> · <a href="https://voltresso.vercel.app">Voltresso website</a></p>
+</footer>
+
+</div>
 </body>
 </html>
