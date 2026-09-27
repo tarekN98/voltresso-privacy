@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Your Account — Voltresso</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #050810;
+    --bg-panel: #0b0f1a;
+    --border: #1c2333;
+    --blue: #2b7fff;
+    --blue-bright: #5aa2ff;
+    --text: #e8ecf5;
+    --text-dim: #8b93a7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.65;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px;
+    border-bottom: 1px solid var(--border);
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; }
+  .logo-mark {
+    width: 32px; height: 32px;
+    border: 1.5px solid var(--blue);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue-bright);
+    font-size: 16px;
+  }
+  .logo-word {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 3px;
+    font-size: 18px;
+    color: var(--text);
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 32px 100px;
+  }
+  .eyebrow {
+    display: inline-block;
+    border: 1px solid var(--border);
+    background: rgba(43,127,255,0.06);
+    color: var(--blue-bright);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 42px;
+    line-height: 1.05;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px;
+  }
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  h2 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;
+    color: var(--blue-bright);
+    margin-top: 48px;
+    margin-bottom: 16px;
+  }
+  p { color: var(--text); font-size: 15.5px; }
+  .step {
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .step strong { color: var(--blue-bright); }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    color: var(--blue-bright);
+    text-transform: uppercase;
+    font-size: 11.5px;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  tr:last-child td { border-bottom: none; }
+  .note {
+    font-size: 14px;
+    color: var(--text-dim);
+    background: rgba(43,127,255,0.06);
+    border: 1px solid var(--border);
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-top: 28px;
+  }
+  a { color: var(--blue-bright); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer {
+    margin-top: 56px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <div class="logo-mark">⚡</div>
+    <div class="logo-word">VOLTRESSO</div>
+  </div>
+</header>
+
+<main>
+  <span class="eyebrow">Account &amp; Data</span>
+  <h1>Delete Your Account</h1>
+  <p class="subtitle">Voltresso — developer: Tarek Sayed</p>
+
+  <p>You can request deletion of your Voltresso account and associated data at any time, in either of the two ways below.</p>
+
+  <h2>How to Request Deletion</h2>
+
+  <div class="step">
+    <strong>Option 1 — In the app:</strong> Open Voltresso, go to <em>Profile → Settings → Delete Account</em>, and confirm the prompt. Your account and profile data are deleted immediately upon confirmation.
+  </div>
+
+  <div class="step">
+    <strong>Option 2 — By email:</strong> Send a request to <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a> from the email address associated with your account, with the subject line "Account Deletion Request." Requests submitted this way are processed within 30 days.
+  </div>
+
+  <h2>What Gets Deleted</h2>
+
+  <table>
+  <tr><th>Data</th><th>Where it lives</th><th>Deleted on request?</th></tr>
+  <tr><td>Profile (name, email, avatar, barista level)</td><td>Voltresso servers (Supabase)</td><td>Yes — permanently removed</td></tr>
+  <tr><td>Authentication credentials</td><td>Voltresso servers (Supabase Auth)</td><td>Yes — revoked immediately</td></tr>
+  <tr><td>Brew logs, custom recipes, saved recipes, streaks/XP</td><td>Your device only (local storage) — not synced to our servers</td><td>Not applicable — we hold no copy. Uninstalling the app or clearing app data removes this permanently on your device.</td></tr>
+  </table>
+
+  <h2>Retention Period</h2>
+  <p>Deletion is immediate. Voltresso does not run automated database backups, so once your account is deleted it is removed from our systems in full — there is no backup copy that persists afterward.</p>
+
+  <div class="note">
+    <strong>Note:</strong> Voltresso does not currently offer deletion of individual data types without deleting the full account. All account data is deleted as a single request.
+  </div>
+
+  <footer>
+    Voltresso · Contact: <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a><br>
+    See also our <a href="https://tarekn98.github.io/voltresso-privacy">Privacy Policy</a> and <a href="https://tarekn98.github.io/voltresso-privacy/terms.html">Terms of Service</a>.
+  </footer>
+</main>
+
+</body>
+</html>
