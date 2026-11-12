@@ -16,7 +16,7 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | Data type (Play category) | Collected | Shared | Ephemeral | Required / optional | Linked to user | Purposes | Code path |
 |---|---|---|---|---|---|---|---|
 | **Location: precise** | No | No | n/a | n/a | n/a | n/a | `lib/use-device-location.ts` `useDeviceLocation.request` reads one position with while-in-use permission and keeps it in React state on the device. Distances: `lib/cafes/geo.ts` `distanceM`. Never sent anywhere. |
-| **Location: approximate** | **QUESTION**: probably Yes | **QUESTION** | **QUESTION** | Optional (only if the user opens the café map) | No | App functionality | `lib/cafes/osm.ts` `cafesNear` sends a grid cell of about 2.2 km × 2.2 km (≈4.8 km², so "approximate") around the user to the Overpass API. `components/cafes/CafeMap.tsx` `NativeCafeMap` loads map tiles for the area on screen from OpenFreeMap; at the default zoom that area is close to the user. Neither Overpass nor OpenFreeMap is our contracted service provider, which is why "shared" is unclear. |
+| **Location: approximate** | **Yes** (founder decision) | **Yes** (founder decision) | No | Optional (only if the user opens the café map) | No | App functionality | Founder decision, Phase 4 checkpoint. Why: `components/cafes/CafeMap.tsx` `NativeCafeMap` loads map tiles from OpenFreeMap for the area on screen, which starts centred on the user (zoom 14). If city packs are hosted online, `lib/cafes/packs.ts` `loadPack` downloads the file of the city the phone picked (`lib/cafes/pack-logic.ts` `cityForPoint`), which reveals the city. The app no longer calls Overpass at runtime (`FLAGS.cafeOverpassDev` off; checked by `check:brew`). |
 | **Personal info: email address** | Yes | No | No | Required (account) | Yes | Account management, app functionality | `context/AppContext.tsx` `signUp`, and the `profiles` upsert in `completeOnboarding` (Supabase Auth + `profiles.email`). |
 | **Personal info: name** | Yes | No | No | Optional (display name) | Yes | Account management, app functionality | `context/AppContext.tsx` `signUp` (name in user metadata), `updateProfile`. |
 | **Personal info: user IDs** | Yes | No | No | Required | Yes | Account management, analytics | Supabase user ID (`context/AppContext.tsx` session). Also sent to PostHog: `lib/analytics.ts` `identifyUser` (called from `AppContext` when signed in and analytics is on). |
@@ -37,7 +37,7 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | Destination | What it receives | Google treatment | Notes |
 |---|---|---|---|
 | Map tiles: OpenFreeMap (`lib/map-config.ts` `ACTIVE_TILE_PROVIDER`) | IP address and the map area on screen | **QUESTION**: collection of approximate location? sharing? | Not our contracted processor. The area is usually close to the user. |
-| Overpass API, overpass-api.de (`lib/cafes/osm.ts` `cafesNear`) | IP address and a ~2.2 km grid cell | **QUESTION**: approximate location collected and shared? Ephemeral? | Independent operator; check its retention. Results cached on device 24 h. |
+| City café packs (`lib/cafes/packs.ts`) | If hosted online: IP address and which city file | Part of "approximate location: collected and shared" (founder decision) | Hosting is a PROPOSED CHANGE: bundled in the app (nothing sent) or Supabase Storage (our server sees IP and city). Overpass is called only by the founder-run build script, never by the app. |
 | PostHog (`lib/analytics.ts`) | Events, device info, anonymous ID; account ID when signed in | Collection (service provider, so not sharing) | Opt-out in Settings. |
 | Sentry (`lib/sentry.ts`) | Error details, device info, traces; may log IP | Collection (service provider) | No user ID attached. |
 | Supabase (whole app) | Account, brewing data, suggestions | Collection (service provider) | EU (Ireland). |
@@ -50,15 +50,16 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 
 The current Data safety answers are not in this repo. **Founder: please paste the current form (or a screenshot) into the PR** so each change can be checked. Based on the code, these are the likely changes:
 
-1. **Location: approximate.** Likely now **collected** (Overpass grid cell and map tiles), optional, purpose App functionality. Sharing and ephemeral answers depend on the questions above.
+1. **Location: approximate.** **Collected and shared**, optional, purpose App functionality (founder decision). Applies from the refine-v2 release.
 2. **Location: precise.** Stays **not collected** (used only on the device).
-3. **User IDs and app interactions.** If the current form says analytics data is **not linked** to the user, change to **linked** (PostHog `identify` with the account ID when signed in).
+3. **User IDs and app interactions.** From the refine-v2 release, analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). The live build does not do this (`identifyUser` is not on `main`), so the current form is right for the live build and must change with the release.
 4. **Other user-generated content.** Add machine and café suggestions.
-5. **Security practices.** "Data is encrypted in transit": yes (HTTPS). "Users can request deletion": yes, but note that suggestions are unlinked, not deleted, under the current database design.
+5. **Security practices.** "Data is encrypted in transit": yes (HTTPS). "Users can request deletion": yes; suggestions are unlinked from the account and their free text is deleted (founder decision).
 
 ## Questions for the founder
 
-1. Is location sent to Overpass and OpenFreeMap "collected" and "shared" under Google's rules? (We send only a ~2.2 km area, never the exact position, and neither service is our contracted processor.)
-2. Do you want to sign a data processing agreement with a tile provider (or self-host tiles) so it counts as a service provider?
-3. Should suggestions be deleted, not just unlinked, when an account is deleted? (Needs a database and account-deletion change.)
+1. Decided: approximate location is collected and shared (founder).
+2. Do you want a data processing agreement with a tile provider (or self-hosted tiles) so it counts as a service provider?
+3. Decided: suggestions are unlinked on account deletion and their free text deleted (founder).
 4. Please paste the current Data safety answers so this draft can be diffed against them.
+5. Which commit is the live closed-test build? This worksheet treats `main` (130a7cb) as live.
