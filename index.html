@@ -71,16 +71,19 @@
 <header>
   <div class="eyebrow">VOLTRESSO</div>
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective: November 12, 2026 · Last updated: November 12, 2026</p>
+  <p class="effective">Effective: [TO CONFIRM: refine-v2 release date] · Last updated: [TO CONFIRM: refine-v2 release date]</p>
 </header>
 
 <p>This Privacy Policy explains what personal information Voltresso collects, how we use it, who we share it with, and what rights you have. We've tried to write it in plain language. If anything is unclear, email us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>.</p>
 
 <div class="note">
-<p><strong>What changed in this update (November 2026)</strong></p>
+<p><strong>What changed in this update</strong></p>
 <ul>
-  <li>We now list the answers you give during sign-up (your starting level and how often you brew), which are saved to your profile. See Section 3.2.</li>
-  <li>We corrected what happens when you sign out: data kept only on your phone stays there until you uninstall the app. See Section 3.3.</li>
+  <li><strong>Café map.</strong> A new map shows coffee places. If you allow it, the app uses your location while you use the map, only on your phone, to centre the map and sort cafés by distance. Your location is never sent to or stored on our servers. See Section 3.9.</li>
+  <li><strong>Map and café lists.</strong> Map images come from a map provider, which receives your IP address and the area shown. Café lists are prepared in advance, one per city; your phone picks the city, and no position or map area is sent to get them. See Sections 3.9 and 5.</li>
+  <li><strong>Things you suggest.</strong> You can suggest a missing coffee machine or café. Suggestions are stored on our servers, linked to your account, and reviewed before anything is public. If you delete your account they are unlinked from it. See Section 3.10.</li>
+  <li><strong>Analytics.</strong> When analytics is on and you are signed in, events are now linked to your account ID (a random identifier, not your email or name), and the "brew_logged" event includes the roast level you picked. See Section 3.7.</li>
+  <li><strong>On your phone only.</strong> Your machine list, the roast level of your bags, the level you choose in Settings and your skill check result stay on your device. See Section 3.3.</li>
 </ul>
 </div>
 
@@ -132,7 +135,7 @@
   <li>Your machine list ("My machines") and which one is your primary machine</li>
   <li>The level you choose in Settings, your skill check result and when you last took it</li>
   <li>Your app appearance choice (System, Light or Dark)</li>
-  <li>Café map lists we have loaded, so we do not ask for them again within 24 hours (names and places of cafés, never your own location)</li>
+  <li>The café lists for the cities you open (names and places of cafés) and the city you picked. Your own location is never stored.</li>
 </ul>
 <p>This data is kept on your phone under your account and is removed when you uninstall the app. Signing out does not delete it from the phone; it is there again when you sign back in on the same phone.</p>
 
@@ -170,7 +173,7 @@
 <p>When you have analytics enabled (you can opt out at any time in Settings):</p>
 <ul>
   <li><strong>PostHog</strong> (our analytics provider) automatically receives anonymous data about device model, operating system version, app version, locale, timezone, screen size, network type, and an anonymous device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context. Since November 2026, "brew_logged" also includes the roast level of the bag (light, medium, dark or unknown). Event details never include free text, notes or your location.</li>
-  <li>We do <strong>not</strong> attach your email or name to PostHog events. When you are signed in, events are linked to your Voltresso account ID (a random identifier that does not contain your email or name), so we can see how the app is used across devices. When you are signed out, events are tied only to an anonymous device-level identifier. [TO CONFIRM: the previous wording said the account ID is never attached; the app does attach it (lib/analytics.ts identifyUser).]</li>
+  <li>We do <strong>not</strong> attach your email or name to PostHog events. When you are signed in, events are linked to your Voltresso account ID (a random identifier that does not contain your email or name), so we can see how the app is used across devices. When you are signed out, events are tied only to an anonymous device-level identifier.</li>
 </ul>
 
 <p>For diagnostic purposes (always-on, used to fix bugs):</p>
@@ -185,13 +188,13 @@
 <h3>3.9 Location and the café map</h3>
 <p>The app has a café map ("Cafés near me") that shows coffee places near you.</p>
 <ul>
-  <li><strong>When we ask.</strong> We ask for your location only when you open the café map, and only for "while using the app" access. The app does not use background location and does not use geofencing. You can say no and still use the map by moving it yourself.</li>
+  <li><strong>When we ask.</strong> We ask for your location only when you open the café map, and only for "while using the app" access. The app does not use background location and does not use geofencing. You can say no and still use the map by picking a city.</li>
   <li><strong>What it is used for.</strong> On your phone, your location is used to centre the map and to sort cafés by distance and walking time.</li>
   <li><strong>What stays on your phone.</strong> Your location is never sent to our servers and never stored by us. It is not included in analytics or error reports. The app uses your position only while the map is open: to place you on the map and to measure distances.</li>
   <li><strong>How to turn it off.</strong> You can remove location access at any time in your phone's settings.</li>
 </ul>
 <p><strong>Map tiles.</strong> The map images ("tiles") are loaded from <strong>OpenFreeMap</strong>. When tiles load, OpenFreeMap receives your device's IP address and the map area being shown, as with any website or map you open. OpenFreeMap's privacy information: [TO CONFIRM: link to OpenFreeMap's privacy page]. We use it to provide the map you ask to see. [TO CONFIRM: legal basis, see Section 4]</p>
-<p><strong>Café list.</strong> The list of cafés comes from <strong>OpenStreetMap</strong> data, which is © OpenStreetMap contributors and available under the Open Database License (ODbL). We look it up through the public <strong>Overpass API</strong> (overpass-api.de). To protect your privacy, the app asks for a wider area of about 2 km around where you are, never your exact position. The Overpass service receives your IP address and that wider area. Results are kept on your phone for 24 hours so the same area is not requested again. [TO CONFIRM: operator and privacy information for overpass-api.de]</p>
+<p><strong>Café lists.</strong> The cafés come from <strong>OpenStreetMap</strong> data, which is © OpenStreetMap contributors and available under the Open Database License (ODbL). We prepare the lists in advance, one file per city. The app downloads a short list of the cities we cover and then the file for the city you are in or the city you pick. Your phone decides which city that is; no position or map area is sent to anyone to get a café list. The files are kept on your phone and refreshed about once a week. [TO CONFIRM: where the city files are hosted. If they come with the app, nothing is downloaded. If they are hosted on our servers (Supabase Storage), our servers see your IP address and which city file was downloaded.]</p>
 <p><strong>Cafés added by people and by Voltresso.</strong> The map can also show cafés that users suggested (after we review them) and Voltresso partner cafés. The app downloads the list of partner cafés without sending your location and matches them on your phone.</p>
 <p><strong>Opening directions.</strong> If you tap Directions or Open in Maps, the app opens Google Maps or Apple Maps with the café's location. From then on that app's own privacy policy applies. We do not use any Google Maps or Apple Maps service inside Voltresso.</p>
 
@@ -202,7 +205,7 @@
   <li>reviewed before anything appears to other people;</li>
   <li>limited to 5 per day.</li>
 </ul>
-<p>A café suggestion never includes your own location. [TO CONFIRM: what happens to suggestions when you delete your account. In the current database design they are kept but no longer linked to you (Section 10.2). If they should be deleted instead, the database and the account-deletion function need a change.]</p>
+<p>A café suggestion never includes your own location. If you delete your account, your suggestions are unlinked from your account. Any free text you typed is deleted at the same time: the notes on a machine suggestion, and the address on a café suggestion that was never approved. The brand and model of a machine, and the name of a café, stay because they are the suggestion itself.</p>
 <p>Your machine list ("My machines") is kept on your phone today. [TO CONFIRM: the database also has a user_machines table for syncing this list in future. If it is switched on, the list is linked to your account and deleted when you delete your account.]</p>
 
 <h2>4. Legal basis for processing (GDPR)</h2>
@@ -231,7 +234,7 @@
     <tr><td>Google OAuth</td><td>Sign in with Google (if you choose this method)</td><td>Global</td></tr>
     <tr><td>Open Food Facts</td><td>Coffee bag barcode lookup</td><td>EU (France)</td></tr>
     <tr><td>OpenFreeMap</td><td>Map tiles for the café map (receives IP address and the map area shown)</td><td>[TO CONFIRM]</td></tr>
-    <tr><td>Overpass API (overpass-api.de)</td><td>Café list from OpenStreetMap (receives IP address and a wider area of about 2 km)</td><td>[TO CONFIRM]</td></tr>
+    <tr><td>City café lists</td><td>Café lists prepared from OpenStreetMap, one file per city (receives IP address and which city file, if hosted online)</td><td>[TO CONFIRM: bundled in the app, or Supabase Storage (EU, Ireland)]</td></tr>
     <tr><td>Google Play Billing</td><td>Subscription payments (when Pro tier launches)</td><td>Per Google</td></tr>
     <tr><td>RevenueCat</td><td>Subscription management (when Pro tier launches)</td><td>United States</td></tr>
     <tr><td>Expo (EAS)</td><td>App build pipeline (does not process user data at runtime)</td><td>United States</td></tr>
@@ -257,9 +260,9 @@
   <li>Avatar images: deleted on account deletion (best-effort across all stored variants)</li>
   <li>IP rate-limiting records: auto-purged hourly</li>
   <li>Aggregate Volt usage counters (no message content): retained for billing-period accounting</li>
-  <li>Machine and café suggestions: kept while they are useful for our catalogue and map [TO CONFIRM: retention period, and whether they are deleted or unlinked when you delete your account]</li>
+  <li>Machine and café suggestions: kept while they are useful for our catalogue and map; unlinked from your account (and their free text deleted) when you delete your account [TO CONFIRM: retention period]</li>
   <li>Your location: not stored by us at all</li>
-  <li>Café map lists on your phone: 24 hours</li>
+  <li>City café lists on your phone: refreshed about once a week</li>
 </ul>
 
 <h2>8. AI processing disclosure</h2>
@@ -292,7 +295,7 @@
   <li>Your avatar image (across all formats)</li>
   <li>Aggregate Volt usage counters tied to your account</li>
 </ul>
-<p>Machine and café suggestions you made are no longer linked to you after deletion. [TO CONFIRM: if they should be deleted instead, see Section 3.10.]</p>
+<p>Machine and café suggestions you made are unlinked from your account, and the free text you typed in them is deleted (see Section 3.10).</p>
 <p>Account deletion is effective immediately on our systems.</p>
 
 <div class="note">
