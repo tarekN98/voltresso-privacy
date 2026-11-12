@@ -80,7 +80,8 @@
 <p><strong>What changed in this update (November 2026)</strong></p>
 <ul>
   <li>We now list the answers you give during sign-up (your starting level and how often you brew), which are saved to your profile. See Section 3.2.</li>
-  <li>We corrected what happens when you sign out: data kept only on your phone stays there until you uninstall the app. See Section 3.3.</li>
+  <li>We corrected what happens when you sign out: data kept only on your phone stays there until you uninstall the app, except your Volt chat history, which is deleted from the phone. See Section 3.3.</li>
+  <li>We corrected how analytics works: when you are signed in and analytics is on, analytics events are linked to your account ID (a random identifier, never your email or name). See Section 3.7.</li>
 </ul>
 </div>
 
@@ -116,7 +117,7 @@
   <li><strong>Saved recipes and saved beans</strong> (your bookmarks)</li>
   <li><strong>Viewed beans</strong> (so we can show your recent activity)</li>
   <li><strong>User settings</strong>: units (Celsius/Fahrenheit, grams/oz, bar/psi), haptics preferences, reduced motion, analytics opt-in, notification preferences</li>
-  <li><strong>Sign-up answers</strong>: the level you chose when you joined and how often you brew, saved to your profile</li>
+  <li><strong>Sign-up answers</strong>: the level you chose when you joined and how often you brew, saved to your profile; if you turn on the morning brew reminder during sign-up, that choice and its time are saved with your settings. The machine and grinder you pick during sign-up stay on your phone (Section 3.3).</li>
 </ul>
 <p>This data is synced to our secure database so you can access your brewing history from a fresh install or new device.</p>
 
@@ -129,7 +130,8 @@
   <li>Scanned coffee bag history (brand, origin, roast date; see Section 3.5)</li>
   <li>Volt Local's learning state (goals, memory, recent topics)</li>
 </ul>
-<p>This data is kept on your phone under your account and is removed when you uninstall the app. Signing out does not delete it from the phone; it is there again when you sign back in on the same phone.</p>
+<p>This data is kept on your phone under your account and is removed when you uninstall the app. Signing out does not delete it from the phone; it is there again when you sign back in on the same phone. The one exception is your Volt chat history, which is deleted from the phone when you sign out.</p>
+<p>Signing out also ends your session on the phone and resets the analytics link to your account (Section 3.7).</p>
 
 <h3>3.4 Volt AI data</h3>
 <p>Voltresso includes an in-app brewing companion called <strong>Volt</strong>, available in two tiers:</p>
@@ -163,8 +165,8 @@
 <h3>3.7 Device and usage data</h3>
 <p>When you have analytics enabled (you can opt out at any time in Settings):</p>
 <ul>
-  <li><strong>PostHog</strong> (our analytics provider) automatically receives anonymous data about device model, operating system version, app version, locale, timezone, screen size, network type, and an anonymous device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context.</li>
-  <li>We do <strong>not</strong> attach your email, name, or account ID to PostHog events. Events are tied only to an anonymous device-level identifier.</li>
+  <li><strong>PostHog</strong> (our analytics provider) automatically receives data about device model, operating system version, app version, locale, timezone, screen size, network type, and a random device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context.</li>
+  <li>When you are signed in, we link these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
 </ul>
 
 <p>For diagnostic purposes (always-on, used to fix bugs):</p>
@@ -260,7 +262,7 @@
 <div class="note">
 <p><strong>Important: third-party processor data.</strong> Some data held by third-party processors is not automatically erased by deleting your Voltresso account, because we cannot directly delete records inside their systems:</p>
 <ul>
-  <li><strong>PostHog</strong> retains anonymous analytics events per their retention policy</li>
+  <li><strong>PostHog</strong> retains analytics events (linked to your account ID if you were signed in) per their retention policy</li>
   <li><strong>Sentry</strong> retains anonymized error events per their retention policy</li>
   <li><strong>Anthropic</strong> may retain Volt Pro transcripts for up to 30 days per their standard API terms</li>
   <li><strong>Google Play / RevenueCat</strong> retain billing and entitlement records per their policies (when Pro launches)</li>
@@ -291,7 +293,7 @@
 
 <h2>11. Cookies and tracking on our website</h2>
 <p>The marketing website at <a href="https://voltresso.vercel.app">voltresso.vercel.app</a> uses a consent banner (provided by Termly) to manage cookies. Essential cookies (for site functionality and consent preferences) are always on. Any optional cookies require your explicit consent, which you can change at any time via the "Consent Preferences" link in the website footer.</p>
-<p>The mobile app does not use cookies in the traditional sense. App-level preferences (whether you've completed onboarding, your settings choices, your local cache of brewing data) are stored using your device's standard local storage and remain on your device unless you sign out or delete the app.</p>
+<p>The mobile app does not use cookies in the traditional sense. App-level preferences (whether you've completed onboarding, your settings choices, your local cache of brewing data) are stored using your device's standard local storage and remain on your device until you delete the app; signing out keeps them (see Section 3.3).</p>
 
 <h2>12. Security</h2>
 <p>We use reasonable technical and organizational measures to protect your data, including:</p>
