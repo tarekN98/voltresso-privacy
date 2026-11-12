@@ -16,7 +16,7 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | Data type (Play category) | Collected | Shared | Ephemeral | Required / optional | Linked to user | Purposes | Code path |
 |---|---|---|---|---|---|---|---|
 | **Location: precise** | No | No | n/a | n/a | n/a | n/a | `lib/use-device-location.ts` `useDeviceLocation.request` reads one position with while-in-use permission and keeps it in React state on the device. Distances: `lib/cafes/geo.ts` `distanceM`. Never sent anywhere. |
-| **Location: approximate** | **Yes** (founder decision) | **Yes** (founder decision) | No | Optional (only if the user opens the café map) | No | App functionality | Founder decision, Phase 4 checkpoint. Why: `components/cafes/CafeMap.tsx` `NativeCafeMap` loads map tiles from OpenFreeMap for the area on screen, which starts centred on the user (zoom 14). If city packs are hosted online, `lib/cafes/packs.ts` `loadPack` downloads the file of the city the phone picked (`lib/cafes/pack-logic.ts` `cityForPoint`), which reveals the city. The app no longer calls Overpass at runtime (`FLAGS.cafeOverpassDev` off; checked by `check:brew`). |
+| **Location: approximate** | **Yes** (founder decision) | **Yes** (founder decision) | No | Optional (only if the user opens the café map) | No | App functionality | Founder decision, Phase 4 checkpoint. Why: `components/cafes/CafeMap.tsx` `NativeCafeMap` loads map tiles from OpenFreeMap for the area on screen, which starts centred on the user (zoom 14). City café packs are **bundled in the app** (`lib/cafes/packs.ts`, data in the JS bundle), and choosing the city (`lib/cafes/pack-logic.ts` `cityForPoint`) runs on the device, so getting a café list sends nothing to our servers. The tiles alone are the reason for the declaration. The app never calls Overpass at runtime (`FLAGS.cafeOverpassDev` off; checked by `check:brew`). |
 | **Personal info: email address** | Yes | No | No | Required (account) | Yes | Account management, app functionality | `context/AppContext.tsx` `signUp`, and the `profiles` upsert in `completeOnboarding` (Supabase Auth + `profiles.email`). |
 | **Personal info: name** | Yes | No | No | Optional (display name) | Yes | Account management, app functionality | `context/AppContext.tsx` `signUp` (name in user metadata), `updateProfile`. |
 | **Personal info: user IDs** | Yes | No | No | Required | Yes | Account management, analytics | Supabase user ID (`context/AppContext.tsx` session). Also sent to PostHog: `lib/analytics.ts` `identifyUser` (called from `AppContext` when signed in and analytics is on). |
@@ -29,7 +29,7 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | **Messages: other in-app messages** | Only when Volt Pro is live | No (Anthropic is a service provider) | **QUESTION** | Optional | **QUESTION** | App functionality | `lib/volt-api.ts` `streamVoltMessage` → `supabase/functions/volt-chat` → Anthropic. Volt Pro is not live (`PRO_PAYMENTS_LIVE` false); declare when it launches. |
 | **App info and performance: crash logs** | Yes | No | No | Required (always on) | No | App functionality, analytics (diagnostics) | `lib/sentry.ts` `initSentry` (`sendDefaultPii: false`, `beforeSend` scrubs emails, tokens and free text; no `setUser` anywhere). |
 | **App info and performance: diagnostics** | Yes | No | No | Required | No | App functionality | `lib/sentry.ts` performance traces (`tracesSampleRate: 0.2`). |
-| **Device or other IDs** | Yes (only with analytics on) | No | No | Optional | Yes when signed in | Analytics | PostHog anonymous device ID (`lib/analytics.ts` `initAnalytics`). |
+| **Device or other IDs** | Yes (only with analytics on) | No | No | Optional | Yes when signed in | Analytics | PostHog random device ID (`lib/analytics.ts` `initAnalytics`). |
 | **Financial info: purchase history** | Not yet | | | | | | Pro purchases (RevenueCat / Google Play Billing) are not live. Declare when they launch. |
 
 ## Third-party traffic
@@ -37,7 +37,8 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | Destination | What it receives | Google treatment | Notes |
 |---|---|---|---|
 | Map tiles: OpenFreeMap (`lib/map-config.ts` `ACTIVE_TILE_PROVIDER`) | IP address and the map area on screen | **QUESTION**: collection of approximate location? sharing? | Not our contracted processor. The area is usually close to the user. |
-| City café packs (`lib/cafes/packs.ts`) | If hosted online: IP address and which city file | Part of "approximate location: collected and shared" (founder decision) | Hosting is a PROPOSED CHANGE: bundled in the app (nothing sent) or Supabase Storage (our server sees IP and city). Overpass is called only by the founder-run build script, never by the app. |
+| City café packs (`lib/cafes/packs.ts`) | Nothing: the packs are bundled in the app (JS bundle) | Nothing to declare | Founder decision: bundled, no pack server. New or refreshed packs arrive with an app update. Overpass is called only by the founder-run build script, never by the app. |
+| App updates: Expo EAS Update (`app.json` `updates.url`, new in refine v2) | IP address, platform, app/runtime version, current update ID, when the app checks for an update | **QUESTION**: likely collection by a service provider (app functionality); not covered by the current policy | The live build (`36b643e`) has no `expo-updates`; refine v2 adds it. Founder wording needed in the policy (Expo row) and here. |
 | PostHog (`lib/analytics.ts`) | Events, device info, anonymous ID; account ID when signed in | Collection (service provider, so not sharing) | Opt-out in Settings. |
 | Sentry (`lib/sentry.ts`) | Error details, device info, traces; may log IP | Collection (service provider) | No user ID attached. |
 | Supabase (whole app) | Account, brewing data, suggestions | Collection (service provider) | EU (Ireland). |
@@ -52,7 +53,7 @@ The current Data safety answers are not in this repo. **Founder: please paste th
 
 1. **Location: approximate.** **Collected and shared**, optional, purpose App functionality (founder decision). Applies from the refine-v2 release.
 2. **Location: precise.** Stays **not collected** (used only on the device).
-3. **User IDs and app interactions.** From the refine-v2 release, analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). The live build does not do this (`identifyUser` is not on `main`), so the current form is right for the live build and must change with the release.
+3. **User IDs and app interactions.** Analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). **This is already true of the live build** (EAS `b571e6c9`, commit `36b643e`: `context/AppContext.tsx` calls `identifyUser`), so if the current form says analytics is not linked, it is wrong today and should be corrected now, not with the refine-v2 release.
 4. **Other user-generated content.** Add machine and café suggestions.
 5. **Security practices.** "Data is encrypted in transit": yes (HTTPS). "Users can request deletion": yes; suggestions are unlinked from the account and their free text is deleted (founder decision).
 
@@ -62,4 +63,5 @@ The current Data safety answers are not in this repo. **Founder: please paste th
 2. Do you want a data processing agreement with a tile provider (or self-hosted tiles) so it counts as a service provider?
 3. Decided: suggestions are unlinked on account deletion and their free text deleted (founder).
 4. Please paste the current Data safety answers so this draft can be diffed against them.
-5. Which commit is the live closed-test build? This worksheet treats `main` (130a7cb) as live.
+5. Settled: the live closed-test build is EAS `b571e6c9` (Android, `preview` profile, internal APK, 2026-11-01) from commit `36b643e` on `feat/sprint1-p0`, not `main`/130a7cb. Please confirm testers have that APK.
+6. EAS Update: refine v2 turns on over-the-air updates (Expo). How should the policy and this form describe the update check?
