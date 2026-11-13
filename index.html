@@ -118,7 +118,7 @@
   <li><strong>Custom recipes</strong> you create</li>
   <li><strong>Saved recipes and saved beans</strong> (your bookmarks)</li>
   <li><strong>Viewed beans</strong> (so we can show your recent activity)</li>
-  <li><strong>User settings</strong>: units (Celsius/Fahrenheit, grams/oz, bar/psi), haptics preferences, reduced motion, analytics opt-in, notification preferences</li>
+  <li><strong>User settings</strong>: units (Celsius/Fahrenheit, grams/oz, bar/psi), haptics preferences, reduced motion, analytics setting, notification preferences</li>
   <li><strong>Sign-up answers</strong>: the level you chose when you joined and how often you brew, saved to your profile; if you turn on the morning brew reminder during sign-up, that choice and its time are saved with your settings. The machine and grinder you pick during sign-up stay on your phone (Section 3.3).</li>
 </ul>
 <p>This data is synced to our secure database so you can access your brewing history from a fresh install or new device.</p>
@@ -171,10 +171,10 @@
 <p>When the free tier of Volt performs a web search for product or coffee information, your search query is sent to <strong>Google Custom Search</strong> (Google's search API). The search query itself and the requesting IP address are visible to Google. We do not send your account information to Google.</p>
 
 <h3>3.7 Device and usage data</h3>
-<p>When you have analytics enabled (you can opt out at any time in Settings):</p>
+<p>Analytics is <strong>on by default</strong>. You can turn it off at any time in Settings; the app then stops sending analytics events. An upcoming app update will ask for your permission before any analytics is collected. While analytics is on:</p>
 <ul>
   <li><strong>PostHog</strong> (our analytics provider) automatically receives data about device model, operating system version, app version, locale, timezone, screen size, network type, and a random device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context. Since November 2026, "brew_logged" also includes the roast level of the bag (light, medium, dark or unknown). Event details never include free text, notes or your location.</li>
-  <li>When you are signed in, we link these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
+  <li>When you are signed in, the app links these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
 </ul>
 
 <p>For diagnostic purposes (always-on, used to fix bugs):</p>
@@ -213,8 +213,8 @@
 <p>If you are in the EU, UK, or another GDPR-applicable jurisdiction, we rely on the following legal bases:</p>
 <ul>
   <li><strong>Performance of a contract</strong>: to provide the Voltresso service you signed up for (account, brewing data sync, in-app features)</li>
-  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product (analytics, where you have not opted out)</li>
-  <li><strong>Consent</strong>: for optional analytics (you can opt in or out at any time in app Settings), for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
+  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product (analytics, which is on by default and can be turned off in Settings) [TO CONFIRM: legal basis for analytics, under legal review; an upcoming update will ask for permission before any analytics is collected]</li>
+  <li><strong>Consent</strong>: for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
   <li><strong>Legal obligation</strong>: to comply with applicable laws and respond to valid legal requests</li>
 </ul>
 <p>For the café map: we use your location only with your permission, which you give or refuse in your phone's location prompt and can withdraw in your phone's settings (consent). Loading map tiles, and storing the machines and cafés you suggest, are part of providing the features you choose to use (performance of a contract). [TO CONFIRM: legal check of these bases.]</p>
@@ -230,7 +230,7 @@
     <tr><td>Supabase</td><td>Database, authentication, file storage, edge functions</td><td>EU (Ireland)</td></tr>
     <tr><td>Anthropic</td><td>AI processing for Volt Pro (paid tier only)</td><td>United States</td></tr>
     <tr><td>Sentry</td><td>Crash and error monitoring</td><td>United States</td></tr>
-    <tr><td>PostHog</td><td>Product analytics (opt-in/out in Settings)</td><td>United States</td></tr>
+    <tr><td>PostHog</td><td>Product analytics (on by default; can be turned off in Settings)</td><td>United States</td></tr>
     <tr><td>Google Custom Search</td><td>Web search results for Volt free tier</td><td>Global</td></tr>
     <tr><td>Google OAuth</td><td>Sign in with Google (if you choose this method)</td><td>Global</td></tr>
     <tr><td>Open Food Facts</td><td>Coffee bag barcode lookup</td><td>EU (France)</td></tr>
