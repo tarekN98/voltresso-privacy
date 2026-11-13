@@ -82,7 +82,8 @@
   <li><strong>Café map.</strong> A new map shows coffee places. If you allow it, the app uses your location while you use the map, only on your phone, to centre the map and sort cafés by distance. Your location is never sent to or stored on our servers. See Section 3.9.</li>
   <li><strong>Map and café lists.</strong> Map images come from a map provider, which receives your IP address and the area shown. Café lists are included in the app, one per city, and are refreshed with app updates; your phone picks the city, and the app makes no request to our servers to get them. See Sections 3.9 and 5.</li>
   <li><strong>Things you suggest.</strong> You can suggest a missing coffee machine or café. Suggestions are stored on our servers, linked to your account, and reviewed before anything is public. If you delete your account they are unlinked from it. See Section 3.10.</li>
-  <li><strong>Analytics.</strong> The "brew_logged" event now includes the roast level you picked. See Section 3.7.</li>
+  <li><strong>Analytics now asks first.</strong> Analytics is off unless you say yes. The app asks once (new users during sign-up, existing users on the first open after this update), with nothing selected for you. You can change your answer in Settings. If you say yes, the "brew_logged" event also includes the roast level you picked. See Section 3.7.</li>
+  <li><strong>App updates.</strong> The app can now receive updates directly. When it checks for one, Expo, our app update provider, receives your IP address and basic app and device details. See Section 3.8.</li>
   <li><strong>On your phone only.</strong> Your machine list, the roast level of your bags, the level you choose in Settings and your skill check result stay on your device. See Section 3.3.</li>
 </ul>
 </div>
@@ -171,7 +172,7 @@
 <p>When the free tier of Volt performs a web search for product or coffee information, your search query is sent to <strong>Google Custom Search</strong> (Google's search API). The search query itself and the requesting IP address are visible to Google. We do not send your account information to Google.</p>
 
 <h3>3.7 Device and usage data</h3>
-<p>Analytics is <strong>on by default</strong>. You can turn it off at any time in Settings; the app then stops sending analytics events. An upcoming app update will ask for your permission before any analytics is collected. While analytics is on:</p>
+<p>Analytics is <strong>off unless you say yes</strong>. The app asks you once, with nothing selected for you: new users during sign-up, and existing users on the first open after the November 2026 update. Until you say yes, the app makes no contact with our analytics provider at all. You can change your answer at any time in Settings; if you turn analytics off, the app stops sending analytics events and resets the link to your account. While analytics is on:</p>
 <ul>
   <li><strong>PostHog</strong> (our analytics provider) automatically receives data about device model, operating system version, app version, locale, timezone, screen size, network type, and a random device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context. Since November 2026, "brew_logged" also includes the roast level of the bag (light, medium, dark or unknown). Event details never include free text, notes or your location.</li>
   <li>When you are signed in, the app links these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
@@ -185,6 +186,7 @@
 
 <h3>3.8 Network metadata</h3>
 <p>Like any internet service, our servers see your IP address when you make a request. We use IP addresses for rate-limiting (preventing abuse) in a short-lived counter table that is automatically purged hourly. IP addresses are not used to identify or track individual users beyond this immediate security purpose.</p>
+<p><strong>App updates.</strong> The app can download updates to its own code and built-in content (for example new café lists) without a new store release, using <strong>Expo</strong>'s update service (EAS Update). When the app checks for an update, Expo receives your device's IP address and basic app and platform details: the platform (Android or iOS), the app and update version, and the update channel. No account information is sent. Expo's privacy policy: <a href="https://expo.dev/privacy">expo.dev/privacy</a>. [TO CONFIRM: the exact fields Expo receives and logs; Expo's data processing terms; the legal basis (performance of a contract or legitimate interests)]</p>
 
 <h3>3.9 Location and the café map</h3>
 <p>The app has a café map ("Cafés near me") that shows coffee places near you.</p>
@@ -213,8 +215,8 @@
 <p>If you are in the EU, UK, or another GDPR-applicable jurisdiction, we rely on the following legal bases:</p>
 <ul>
   <li><strong>Performance of a contract</strong>: to provide the Voltresso service you signed up for (account, brewing data sync, in-app features)</li>
-  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product (analytics, which is on by default and can be turned off in Settings) [TO CONFIRM: legal basis for analytics, under legal review; an upcoming update will ask for permission before any analytics is collected]</li>
-  <li><strong>Consent</strong>: for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
+  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product from error reports</li>
+  <li><strong>Consent</strong>: for analytics (asked once in the app, off unless you say yes, and you can withdraw it at any time in Settings), for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription) [TO CONFIRM: lawyer review of consent as the basis for analytics]</li>
   <li><strong>Legal obligation</strong>: to comply with applicable laws and respond to valid legal requests</li>
 </ul>
 <p>For the café map: we use your location only with your permission, which you give or refuse in your phone's location prompt and can withdraw in your phone's settings (consent). Loading map tiles, and storing the machines and cafés you suggest, are part of providing the features you choose to use (performance of a contract). [TO CONFIRM: legal check of these bases.]</p>
@@ -230,14 +232,14 @@
     <tr><td>Supabase</td><td>Database, authentication, file storage, edge functions</td><td>EU (Ireland)</td></tr>
     <tr><td>Anthropic</td><td>AI processing for Volt Pro (paid tier only)</td><td>United States</td></tr>
     <tr><td>Sentry</td><td>Crash and error monitoring</td><td>United States</td></tr>
-    <tr><td>PostHog</td><td>Product analytics (on by default; can be turned off in Settings)</td><td>United States</td></tr>
+    <tr><td>PostHog</td><td>Product analytics, only if you say yes (can be changed in Settings) [TO CONFIRM: PostHog data processing terms and transfer mechanism]</td><td>United States</td></tr>
     <tr><td>Google Custom Search</td><td>Web search results for Volt free tier</td><td>Global</td></tr>
     <tr><td>Google OAuth</td><td>Sign in with Google (if you choose this method)</td><td>Global</td></tr>
     <tr><td>Open Food Facts</td><td>Coffee bag barcode lookup</td><td>EU (France)</td></tr>
     <tr><td>OpenFreeMap</td><td>Map tiles for the café map (receives IP address and the map area shown)</td><td>[TO CONFIRM]</td></tr>
     <tr><td>Google Play Billing</td><td>Subscription payments (when Pro tier launches)</td><td>Per Google</td></tr>
     <tr><td>RevenueCat</td><td>Subscription management (when Pro tier launches)</td><td>United States</td></tr>
-    <tr><td>Expo (EAS)</td><td>App build pipeline [TO CONFIRM: from this release the app checks Expo's update service for app updates (EAS Update), so Expo receives the device's IP address and app and platform details when the app looks for an update; the row and Section 3.7 need founder wording]</td><td>United States</td></tr>
+    <tr><td>Expo (EAS)</td><td>App build pipeline and app updates (EAS Update): receives your IP address and basic app and device details when the app checks for an update. <a href="https://expo.dev/privacy">Expo privacy policy</a> [TO CONFIRM: Expo's data processing terms, and whether Expo acts as our processor]</td><td>United States</td></tr>
     <tr><td>Vercel</td><td>Marketing website hosting (voltresso.vercel.app)</td><td>United States</td></tr>
     <tr><td>GitHub Pages</td><td>Policy site hosting (this page)</td><td>United States</td></tr>
     <tr><td>Zoho Mail</td><td>Support email (voltresso@zohomail.eu)</td><td>EU</td></tr>
@@ -283,7 +285,7 @@
   <li><strong>Correct</strong> inaccurate data: update your profile, brew logs, recipes, and settings directly in the app, or email us</li>
   <li><strong>Delete</strong> your account and the data we control: use the Delete Account option in Settings, or email us</li>
   <li><strong>Export</strong> a copy of your data: email us and we'll provide it in a standard format</li>
-  <li><strong>Opt out of analytics</strong>: toggle Analytics off in Settings</li>
+  <li><strong>Withdraw analytics consent</strong>: toggle Analytics off in Settings</li>
 </ul>
 
 <h3>10.2 Account deletion: scope</h3>
