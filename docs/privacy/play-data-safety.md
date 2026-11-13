@@ -4,6 +4,42 @@ Draft for the founder. **Nothing has been changed in Play Console.** The founder
 
 Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR #8) as of 12 November 2026. Each row names the file and function that justifies the answer. Anything I could not settle from the code is marked **QUESTION**.
 
+## Exact answers for the Play Console form
+
+Enter these in Play Console > App content > Data safety. **Now** = true for every build closed testers hold today (Play AAB `19d16f6`, November APKs `36b643e` / `09712aa` / `f23b24c`). **Add at that release** = only from the refine-v2 release. A lawyer reviews the form with the policy (`docs/privacy/lawyer-review.md`).
+
+### Data collection and security
+
+| Question | Answer | When |
+|---|---|---|
+| Does your app collect or share any of the required user data types? | Yes | Now |
+| Is all of the user data collected by your app encrypted in transit? | Yes (HTTPS / TLS everywhere) | Now |
+| Do you provide a way for users to request that their data is deleted? | Yes: in the app (Settings > Delete account) and on the web (`delete-account.html`) | Now |
+
+### Data types
+
+| Category > Data type | Collected | Shared | Processed ephemerally | Required or optional | Purposes | When |
+|---|---|---|---|---|---|---|
+| Personal info > Email address | Yes | No | No | Required | Account management, App functionality | Now |
+| Personal info > Name | Yes | No | No | Optional | Account management, App functionality | Now |
+| Personal info > User IDs | Yes | No | No | Required | Account management, Analytics | Now (Analytics purpose: November builds link PostHog to the account ID) |
+| Photos and videos > Photos | Yes | No | No | Optional | App functionality (profile photo) | Now |
+| **App activity > App interactions** | **Yes** | No | No | **Optional** | **Analytics** | **Now. Wrong today if the form says not collected or not linked: set "linked to the user" (November builds identify by account ID).** |
+| App activity > In-app search history | QUESTION (free Volt web search goes through our server to Google Custom Search) | QUESTION | QUESTION | Optional | App functionality | Now (unchanged; confirm the current answer) |
+| App activity > Other user-generated content | Yes | No | No | Optional | App functionality | Now (brew logs, recipes, saved items) |
+| App activity > Other user-generated content: machine and café suggestions | Yes | No | No | Optional | App functionality | **Add at that release** (refine v2) |
+| App info and performance > Crash logs | Yes | No | No | Required | App functionality, Analytics | Now |
+| App info and performance > Diagnostics | Yes | No | No | Required | App functionality | Now |
+| Device or other IDs | Yes | No | No | Optional | Analytics | Now |
+| Location > Approximate location | Yes | **Yes** (map tiles: the tile provider sees the area shown) | No | Optional | App functionality | **Add at that release** (refine v2, founder decision) |
+| Location > Precise location | No | No | | | | Stays "not collected" (used only on the phone) |
+
+"Linked to the user" (Play asks per data type): Yes for every row above except Crash logs, Diagnostics and Approximate location (No).
+
+From the refine-v2 release the analytics rows keep the same answers; only the way consent is obtained changes (opt-in, off unless the user says yes).
+
+EAS Update (refine v2): the update check sends the IP address and app/platform details to Expo. Play has no separate data type for this; QUESTION for the lawyer whether it needs declaring (see `lawyer-review.md`).
+
 ## How Google's definitions apply (short version)
 
 - **Collected** means data is sent off the device, to us or to anyone else. Data that is only processed on the phone is **not** collected.
@@ -39,7 +75,7 @@ Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR 
 | Map tiles: OpenFreeMap (`lib/map-config.ts` `ACTIVE_TILE_PROVIDER`) | IP address and the map area on screen | **QUESTION**: collection of approximate location? sharing? | Not our contracted processor. The area is usually close to the user. |
 | City café packs (`lib/cafes/packs.ts`) | Nothing: the packs are bundled in the app (JS bundle) | Nothing to declare | Founder decision: bundled, no pack server. New or refreshed packs arrive with an app update. Overpass is called only by the founder-run build script, never by the app. |
 | App updates: Expo EAS Update (`app.json` `updates.url`, new in refine v2) | IP address, platform, app/runtime version, current update ID, when the app checks for an update | **QUESTION**: likely collection by a service provider (app functionality); not covered by the current policy | The live build (`36b643e`) has no `expo-updates`; refine v2 adds it. Founder wording needed in the policy (Expo row) and here. |
-| PostHog (`lib/analytics.ts`) | Events, device info, anonymous ID; account ID when signed in | Collection (service provider, so not sharing) | Opt-out in Settings. |
+| PostHog (`lib/analytics.ts`) | Events, device info, anonymous ID; account ID when signed in | Collection (service provider, so not sharing) | Live builds: on by default, opt-out in Settings. From refine v2: opt-in, no PostHog call before a yes. |
 | Sentry (`lib/sentry.ts`) | Error details, device info, traces; may log IP | Collection (service provider) | No user ID attached. |
 | Supabase (whole app) | Account, brewing data, suggestions | Collection (service provider) | EU (Ireland). |
 | Anthropic via `volt-chat` | Volt Pro messages and context | Collection (service provider) when Pro is live | Not live yet. |
@@ -53,7 +89,7 @@ The current Data safety answers are not in this repo. **Founder: please paste th
 
 1. **Location: approximate.** **Collected and shared**, optional, purpose App functionality (founder decision). Applies from the refine-v2 release.
 2. **Location: precise.** Stays **not collected** (used only on the device).
-3. **User IDs and app interactions.** Analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). **This is already true of the live build** (EAS `b571e6c9`, commit `36b643e`: `context/AppContext.tsx` calls `identifyUser`), so if the current form says analytics is not linked, it is wrong today and should be corrected now, not with the refine-v2 release.
+3. **User IDs and app interactions.** (Exact answers above.) Analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). **This is already true of the live build** (EAS `b571e6c9`, commit `36b643e`: `context/AppContext.tsx` calls `identifyUser`), so if the current form says analytics is not linked, it is wrong today and should be corrected now, not with the refine-v2 release.
 4. **Other user-generated content.** Add machine and café suggestions.
 5. **Security practices.** "Data is encrypted in transit": yes (HTTPS). "Users can request deletion": yes; suggestions are unlinked from the account and their free text is deleted (founder decision).
 
