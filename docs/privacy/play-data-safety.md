@@ -4,41 +4,59 @@ Draft for the founder. **Nothing has been changed in Play Console.** The founder
 
 Source of truth: the app code on `feat/refine-v2` (tarekN98/voltresso, draft PR #8) as of 12 November 2026. Each row names the file and function that justifies the answer. Anything I could not settle from the code is marked **QUESTION**.
 
-## Exact answers for the Play Console form
+## Submitted to Play on 2026-11-14 (current form)
 
-Enter these in Play Console > App content > Data safety. **Now** = true for every build closed testers hold today (Play AAB `19d16f6`, November APKs `36b643e` / `09712aa` / `f23b24c`). **Add at that release** = only from the refine-v2 release. A lawyer reviews the form with the policy (`docs/privacy/lawyer-review.md`).
+What the founder submitted in Play Console > App content > Data safety on 2026-11-14. This is the form as it stands for the live closed-test builds (Play AAB `19d16f6`; internal APKs `36b643e` / `09712aa` / `f23b24c`), none of which uses location.
 
-### Data collection and security
+### Changed in that submission
 
-| Question | Answer | When |
+| Data type | Before | Submitted |
 |---|---|---|
-| Does your app collect or share any of the required user data types? | Yes | Now |
-| Is all of the user data collected by your app encrypted in transit? | Yes (HTTPS / TLS everywhere) | Now |
-| Do you provide a way for users to request that their data is deleted? | Yes: in the app (Settings > Delete account) and on the web (`delete-account.html`) | Now |
+| Location > Approximate location | Ticked in a draft, never answered | **Removed** (no live build uses location) |
+| Location > Precise location | Ticked in a draft, never answered | **Removed** |
+| App activity > App interactions | Collected; shared (Analytics); required; Analytics | Collected; shared (Analytics, unchanged); **optional**; Analytics |
+| App activity > Other user-generated content | Not declared | **Added**: collected; not shared; not ephemeral; optional; App functionality |
 
-### Data types
+### Left unchanged, pending the lawyer (`lawyer-review.md` item 11)
 
-| Category > Data type | Collected | Shared | Processed ephemerally | Required or optional | Purposes | When |
-|---|---|---|---|---|---|---|
-| Personal info > Email address | Yes | No | No | Required | Account management, App functionality | Now |
-| Personal info > Name | Yes | No | No | Optional | Account management, App functionality | Now |
-| Personal info > User IDs | Yes | No | No | Required | Account management, Analytics | Now (Analytics purpose: November builds link PostHog to the account ID) |
-| Photos and videos > Photos | Yes | No | No | Optional | App functionality (profile photo) | Now |
-| **App activity > App interactions** | **Yes** | No | No | **Optional** | **Analytics** | **Now. Wrong today if the form says not collected or not linked: set "linked to the user" (November builds identify by account ID).** |
-| App activity > In-app search history | QUESTION (free Volt web search goes through our server to Google Custom Search) | QUESTION | QUESTION | Optional | App functionality | Now (unchanged; confirm the current answer) |
-| App activity > Other user-generated content | Yes | No | No | Optional | App functionality | Now (brew logs, recipes, saved items) |
-| App activity > Other user-generated content: machine and café suggestions | Yes | No | No | Optional | App functionality | **Add at that release** (refine v2) |
-| App info and performance > Crash logs | Yes | No | No | Required | App functionality, Analytics | Now |
-| App info and performance > Diagnostics | Yes | No | No | Required | App functionality | Now |
-| Device or other IDs | Yes | No | No | Optional | Analytics | Now |
-| Location > Approximate location | Yes | **Yes** (map tiles: the tile provider sees the area shown) | No | Optional | App functionality | **Add at that release** (refine v2, founder decision) |
-| Location > Precise location | No | No | | | | Stays "not collected" (used only on the phone) |
+| Question | Current form | Worksheet view (not applied) |
+|---|---|---|
+| "Shared" ticks on User IDs, App interactions, Device or other IDs, Crash logs, Diagnostics, Other in-app messages | Shared | Not shared: PostHog, Sentry and Supabase act as service providers |
+| Personal info > Name | Required | Optional (display name) |
+| Device or other IDs | Required; App functionality, Analytics | Optional (analytics can be turned off) |
+| Messages > Other in-app messages | Collected; shared; ephemeral; optional; App functionality, Personalisation | Unclear: Volt Pro (Anthropic) is not live |
+| App activity > In-app search history | Not declared | QUESTION: free Volt web search goes through our server to Google Custom Search |
 
-"Linked to the user" (Play asks per data type): Yes for every row above except Crash logs, Diagnostics and Approximate location (No).
+### Full current form (for reference)
 
-From the refine-v2 release the analytics rows keep the same answers; only the way consent is obtained changes (opt-in, off unless the user says yes).
+| Data type | Collected | Shared | Ephemeral | Required / optional | Purposes |
+|---|---|---|---|---|---|
+| Personal info > Name | Yes | No | No | Required | App functionality, Account management |
+| Personal info > Email address | Yes | No | No | Required | App functionality, Account management |
+| Personal info > User IDs | Yes | Yes (Analytics) | No | Required | App functionality, Analytics, Account management |
+| Messages > Other in-app messages | Yes | Yes (App functionality) | Yes | Optional | App functionality, Personalisation |
+| Photos and videos > Photos | Yes | No | No | Optional | App functionality, Personalisation |
+| App activity > App interactions | Yes | Yes (Analytics) | No | Optional | Analytics |
+| App activity > Other user-generated content | Yes | No | No | Optional | App functionality |
+| App info and performance > Crash logs | Yes | Yes (App functionality) | No | Required | App functionality |
+| App info and performance > Diagnostics | Yes | Yes (App functionality) | No | Required | App functionality |
+| Device or other IDs | Yes | Yes (App functionality, Analytics) | No | Required | App functionality, Analytics |
 
-EAS Update (refine v2): the update check sends the IP address and app/platform details to Expo. Play has no separate data type for this; QUESTION for the lawyer whether it needs declaring (see `lawyer-review.md`).
+Security: data encrypted in transit: Yes. Account creation: username and password; username, password and other authentication. Delete-account URL: the GitHub Pages `delete-account` page. Partial data deletion without deleting the account: No.
+
+Play's form has no separate "linked to the user" question, so that worksheet field is not entered anywhere.
+
+## Release checklist: café map build to Play
+
+The refine-v2 build adds the café map. Its Android manifest requests `ACCESS_COARSE_LOCATION` and `ACCESS_FINE_LOCATION` (`app.json` `android.permissions`), foreground only: `ACCESS_BACKGROUND_LOCATION` is in `blockedPermissions`, and the `expo-location` plugin sets `isAndroidBackgroundLocationEnabled: false` and `isAndroidForegroundServiceEnabled: false`. The app reads one position with `requestForegroundPermissionsAsync` and `getCurrentPositionAsync({ accuracy: Balanced })` (`lib/use-device-location.ts`). It keeps that position on the phone and never sends it anywhere. None of the live builds (`19d16f6`, `f23b24c`) declares any location permission or includes `expo-location`.
+
+1. **Before uploading the refine-v2 build to any Play track** (internal testing, closed, open or production), in the **same submission** as the build, update the Data safety form:
+   - Add **Location > Approximate location**: collected; **shared** (the map tile provider receives the map area on screen); not ephemeral; **optional**; App functionality.
+   - Add machine and café **suggestions** under App activity > Other user-generated content: already declared (collected, not shared, optional, App functionality). Check that the answers still fit; no new row is needed.
+2. **Precise location:** our reading is **not collected**, so it is not declared. The precise position never leaves the phone, and tiles reveal only the area shown (zoom 14, roughly a 2.4 km tile). But the build does request `ACCESS_FINE_LOCATION`. Confirm with the lawyer (`lawyer-review.md` item 12), or drop `ACCESS_FINE_LOCATION` from `app.json` so the build asks for approximate location only. The map would still work, just less exactly centred.
+3. **Location permissions declaration:** Play may also ask about location permissions (App content). Foreground only, no background location, so no background-location declaration should be needed. Check what Play Console asks when the build is uploaded.
+4. **Privacy policy:** the location and map sections of privacy PR #1 (`privacy/refine-v2`) must be **published** (merged to GitHub Pages) **before** that build reaches any tester.
+5. **Founder testing before that:** an **internal preview APK** (EAS `preview` profile, sideloaded, not uploaded to Play) needs **no** form change.
 
 ## How Google's definitions apply (short version)
 
@@ -85,19 +103,13 @@ EAS Update (refine v2): the update check sends the IP address and app/platform d
 
 ## Answers that probably change in the current form
 
-The current Data safety answers are not in this repo. **Founder: please paste the current form (or a screenshot) into the PR** so each change can be checked. Based on the code, these are the likely changes:
-
-1. **Location: approximate.** **Collected and shared**, optional, purpose App functionality (founder decision). Applies from the refine-v2 release.
-2. **Location: precise.** Stays **not collected** (used only on the device).
-3. **User IDs and app interactions.** (Exact answers above.) Analytics is **linked** to the user (PostHog `identify` with the account ID when signed in). **This is already true of the live build** (EAS `b571e6c9`, commit `36b643e`: `context/AppContext.tsx` calls `identifyUser`), so if the current form says analytics is not linked, it is wrong today and should be corrected now, not with the refine-v2 release.
-4. **Other user-generated content.** Add machine and café suggestions.
-5. **Security practices.** "Data is encrypted in transit": yes (HTTPS). "Users can request deletion": yes; suggestions are unlinked from the account and their free text is deleted (founder decision).
+Superseded by "Submitted to Play on 2026-11-14" and the release checklist above.
 
 ## Questions for the founder
 
 1. Decided: approximate location is collected and shared (founder).
 2. Do you want a data processing agreement with a tile provider (or self-hosted tiles) so it counts as a service provider?
 3. Decided: suggestions are unlinked on account deletion and their free text deleted (founder).
-4. Please paste the current Data safety answers so this draft can be diffed against them.
+4. Done: the form was read and updated on 2026-11-14 (section above).
 5. Settled: the live closed-test build is EAS `b571e6c9` (Android, `preview` profile, internal APK, 2026-11-01) from commit `36b643e` on `feat/sprint1-p0`, not `main`/130a7cb. Please confirm testers have that APK.
 6. EAS Update: refine v2 turns on over-the-air updates (Expo). How should the policy and this form describe the update check?

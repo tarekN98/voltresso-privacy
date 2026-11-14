@@ -70,3 +70,19 @@ For the lawyer reviewing the policy before the production release. **Nothing her
 - **In-app search history** (worksheet QUESTION): free Volt web search sends the query via our server to Google Custom Search; does Play's "in-app search history" apply, and is Google a processor here?
 - **Barcodes** (worksheet QUESTION): only the barcode number goes to Open Food Facts; we believe nothing needs declaring.
 - **Sentry**: may log the IP address; "anonymized" in section 10 should be checked against Sentry's settings.
+
+## 11. Play Data safety answers left unchanged on 2026-11-14
+
+The founder updated the Play form on 2026-11-14 (`play-data-safety.md`, "Submitted to Play on 2026-11-14") but left these answers as they were until this review:
+
+- **"Shared" ticks.** User IDs, App interactions, Device or other IDs, Crash logs, Diagnostics and Other in-app messages are declared as shared. Under Google's definitions, a transfer to a service provider processing data on our behalf is not "sharing". Do PostHog, Sentry, Supabase (and Anthropic, for Volt) qualify as service providers under our agreements, so that these ticks can be removed? Or should they stay, to be cautious? Why it matters: "shared" shows on the store listing as "may be shared with other companies".
+- **Name: required.** The display name is optional in the app (`context/AppContext.tsx` `signUp`, `updateProfile`). Should the form say optional?
+- **Device or other IDs: required.** The PostHog device ID is sent only while analytics is on: on by default with opt-out in the live builds, opt-in from refine v2 (`lib/analytics-core.ts`). Should it be optional, like App interactions?
+- **Messages > Other in-app messages** (collected, shared, ephemeral, optional). Volt Pro (Anthropic) is not live (`PRO_PAYMENTS_LIVE` false), and the free Volt runs on the phone apart from web search. Should this row stay, change, or wait for Volt Pro?
+- **App activity > In-app search history** (not declared). The free Volt web search sends the query through our edge function to Google Custom Search (`lib/volt-api.ts` `fetchFreeSearch`, `supabase/functions/volt-chat`, `_shared/search.ts`). Does this need declaring, and is it shared?
+
+## 12. Precise location
+
+- **Question:** The refine-v2 build requests `ACCESS_FINE_LOCATION` as well as `ACCESS_COARSE_LOCATION` (`app.json` `android.permissions`). The precise position never leaves the phone (`lib/use-device-location.ts`): it centres the map and sorts by distance. The tile provider sees only the map area shown (zoom 14, `components/cafes/CafeMap.tsx`). Is "Precise location: not collected" correct on the Play form and in the policy? Or does requesting the fine permission, or tiles centred on the user, require declaring it?
+- **Why it matters:** it changes the store listing and the policy. The safe alternative is to request `ACCESS_COARSE_LOCATION` only; the map still works with approximate centring.
+- **Where:** `app.json` (`android.permissions`, `blockedPermissions`, `expo-location` plugin: no background location); `play-data-safety.md` "Release checklist: café map build to Play"; policy section 3.9.
