@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Voltresso</title>
-  <meta name="description" content="Voltresso Privacy Policy — what data we collect, how we use it, and your rights as a user of our coffee brewing companion app.">
+  <title>Privacy Policy · Voltresso</title>
+  <meta name="description" content="Voltresso Privacy Policy: what data we collect, how we use it, and your rights as a user of our coffee brewing companion app.">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -71,10 +71,19 @@
 <header>
   <div class="eyebrow">VOLTRESSO</div>
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective: June 21, 2026 · Last updated: June 21, 2026</p>
+  <p class="effective">Effective: November 15, 2026 · Last updated: November 15, 2026</p>
 </header>
 
 <p>This Privacy Policy explains what personal information Voltresso collects, how we use it, who we share it with, and what rights you have. We've tried to write it in plain language. If anything is unclear, email us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>.</p>
+
+<div class="note">
+<p><strong>What changed in this update (November 2026)</strong></p>
+<ul>
+  <li>We now list the answers you give during sign-up (your starting level and how often you brew), which are saved to your profile. See Section 3.2.</li>
+  <li>We corrected what happens when you sign out: data kept only on your phone stays there until you uninstall the app, except your Volt chat history, which is deleted from the phone. See Section 3.3.</li>
+  <li>Analytics is now <strong>off by default</strong>. Nothing is sent to our analytics provider unless you switch Analytics on in Settings. When it is on and you are signed in, analytics events are linked to your account ID (a random identifier, never your email or name). See Section 3.7.</li>
+</ul>
+</div>
 
 <h2>1. Who we are</h2>
 <p>Voltresso is a coffee brewing companion app and website operated by <strong>Tarek Sayed</strong>, an independent solo developer currently resident in <strong>Serbia</strong>. Voltresso is not a registered company; it is operated by an individual as a personal project.</p>
@@ -93,21 +102,22 @@
 <h3>3.1 Account information</h3>
 <p>When you create a Voltresso account, we collect:</p>
 <ul>
-  <li><strong>Email address</strong> — used as your account identifier and for password reset</li>
-  <li><strong>Password</strong> — securely hashed by our authentication provider (Supabase Auth); we never see, store, or log your raw password</li>
-  <li><strong>Display name</strong> — what you choose to be called in the app</li>
-  <li><strong>Avatar</strong> — either a preset avatar or a photo you upload (see Section 3.5 below)</li>
+  <li><strong>Email address</strong>: used as your account identifier and for password reset</li>
+  <li><strong>Password</strong>: securely hashed by our authentication provider (Supabase Auth); we never see, store, or log your raw password</li>
+  <li><strong>Display name</strong>: what you choose to be called in the app</li>
+  <li><strong>Avatar</strong>: either a preset avatar or a photo you upload (see Section 3.5 below)</li>
 </ul>
 <p>If you sign in with Google, we additionally receive from Google your <strong>Google account identifier, name, and profile photo URL</strong>. We do not receive your Google password or access any other Google data.</p>
 
 <h3>3.2 Brewing data</h3>
-<p>To deliver Voltresso's core function — helping you brew better coffee — we store the brewing data you create in the app:</p>
+<p>To deliver Voltresso's core function (helping you brew better coffee), we store the brewing data you create in the app:</p>
 <ul>
   <li><strong>Brew logs</strong>: dose, yield, brew time, temperature, grind setting, pressure (for espresso brews), tasting notes, rating, score, and which machine/bean you used</li>
   <li><strong>Custom recipes</strong> you create</li>
   <li><strong>Saved recipes and saved beans</strong> (your bookmarks)</li>
   <li><strong>Viewed beans</strong> (so we can show your recent activity)</li>
-  <li><strong>User settings</strong>: units (Celsius/Fahrenheit, grams/oz, bar/psi), haptics preferences, reduced motion, analytics opt-in, notification preferences</li>
+  <li><strong>User settings</strong>: units (Celsius/Fahrenheit, grams/oz, bar/psi), haptics preferences, reduced motion, analytics setting, notification preferences</li>
+  <li><strong>Sign-up answers</strong>: the level you chose when you joined and how often you brew, saved to your profile; if you turn on the morning brew reminder during sign-up, that choice and its time are saved with your settings. The machine and grinder you pick during sign-up stay on your phone (Section 3.3).</li>
 </ul>
 <p>This data is synced to our secure database so you can access your brewing history from a fresh install or new device.</p>
 
@@ -117,17 +127,18 @@
   <li>Your selected coffee equipment (machine, grinder, and other brewing devices)</li>
   <li>Brewing streak counters, XP, level progress, and achievement-fired flags</li>
   <li>Volt chat history (conversations with Volt, our in-app brewing companion)</li>
-  <li>Scanned coffee bag history (brand, origin, roast date — see Section 3.5)</li>
+  <li>Scanned coffee bag history (brand, origin, roast date; see Section 3.5)</li>
   <li>Volt Local's learning state (goals, memory, recent topics)</li>
 </ul>
-<p>This data is cleared if you uninstall the app or sign out.</p>
+<p>This data is kept on your phone under your account and is removed when you uninstall the app. Signing out does not delete it from the phone; it is there again when you sign back in on the same phone. The one exception is your Volt chat history, which is deleted from the phone when you sign out.</p>
+<p>Signing out also ends your session on the phone and resets the analytics link to your account (Section 3.7).</p>
 
 <h3>3.4 Volt AI data</h3>
 <p>Voltresso includes an in-app brewing companion called <strong>Volt</strong>, available in two tiers:</p>
 
 <p><strong>Volt Local</strong> (free, default): Runs entirely on your device. It does not send any data to any server. Your conversations with Volt Local never leave your phone.</p>
 
-<p><strong>Volt Pro</strong> (paid, not yet active — planned for a future release): When activated, Volt Pro routes your messages through our Supabase Edge Function proxy to <strong>Anthropic's Claude API</strong>. The messages we send to Anthropic include:</p>
+<p><strong>Volt Pro</strong> (paid, not yet active; planned for a future release): When activated, Volt Pro routes your messages through our Supabase Edge Function proxy to <strong>Anthropic's Claude API</strong>. The messages we send to Anthropic include:</p>
 <ul>
   <li>Your message text</li>
   <li>Context about your selected machine and grinder (model and brewing targets)</li>
@@ -139,23 +150,23 @@
 </ul>
 <p>We do <strong>not</strong> send your email address, name, account ID, or any other directly-identifying personal information to Anthropic.</p>
 <p>Volt Pro chat transcripts are <strong>not stored on Voltresso's servers</strong>. They live only on your device. Anthropic, under their standard API terms, may retain transcripts for up to 30 days for trust and safety review purposes; their retention policy is documented at <a href="https://www.anthropic.com/legal">anthropic.com/legal</a>.</p>
-<p>We do track aggregate usage counts (messages per month) on our servers solely to enforce monthly limits — these counters store no message content.</p>
+<p>We do track aggregate usage counts (messages per month) on our servers solely to enforce monthly limits; these counters store no message content.</p>
 
 <h3>3.5 Camera and photos</h3>
 <p>Voltresso accesses your camera and photo library for two purposes:</p>
 <ul>
   <li><strong>Avatar upload</strong>: When you choose to upload a profile picture, the photo is uploaded to our Supabase Storage and stored at a path tied to your user ID. The avatar storage bucket is publicly readable (anyone with the exact URL can fetch the image), so you should treat your uploaded avatar as content you are comfortable being potentially shareable.</li>
-  <li><strong>Bag barcode scanning</strong>: When you scan a coffee bag barcode, your device camera reads the barcode number. No photo is taken, stored, or uploaded — only the decoded barcode number leaves your device. The barcode is sent to the open-data project <strong>Open Food Facts</strong> (operated by a French non-profit) to look up product information.</li>
+  <li><strong>Bag barcode scanning</strong>: When you scan a coffee bag barcode, your device camera reads the barcode number. No photo is taken, stored, or uploaded; only the decoded barcode number leaves your device. The barcode is sent to the open-data project <strong>Open Food Facts</strong> (operated by a French non-profit) to look up product information.</li>
 </ul>
 
 <h3>3.6 Search queries</h3>
 <p>When the free tier of Volt performs a web search for product or coffee information, your search query is sent to <strong>Google Custom Search</strong> (Google's search API). The search query itself and the requesting IP address are visible to Google. We do not send your account information to Google.</p>
 
 <h3>3.7 Device and usage data</h3>
-<p>When you have analytics enabled (you can opt out at any time in Settings):</p>
+<p>Analytics is <strong>off by default</strong>. The app sends nothing to our analytics provider unless you switch Analytics on in Settings. You can switch it off again at any time; the app then stops sending analytics events and resets the link to your account. (Some older test versions of the app had analytics on by default.) While analytics is on:</p>
 <ul>
-  <li><strong>PostHog</strong> (our analytics provider) automatically receives anonymous data about device model, operating system version, app version, locale, timezone, screen size, network type, and an anonymous device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context.</li>
-  <li>We do <strong>not</strong> attach your email, name, or account ID to PostHog events. Events are tied only to an anonymous device-level identifier.</li>
+  <li><strong>PostHog</strong> (our analytics provider) automatically receives data about device model, operating system version, app version, locale, timezone, screen size, network type, and a random device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context.</li>
+  <li>When you are signed in, the app links these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
 </ul>
 
 <p>For diagnostic purposes (always-on, used to fix bugs):</p>
@@ -170,10 +181,10 @@
 <h2>4. Legal basis for processing (GDPR)</h2>
 <p>If you are in the EU, UK, or another GDPR-applicable jurisdiction, we rely on the following legal bases:</p>
 <ul>
-  <li><strong>Performance of a contract</strong> — to provide the Voltresso service you signed up for (account, brewing data sync, in-app features)</li>
-  <li><strong>Legitimate interests</strong> — to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product (analytics, where you have not opted out)</li>
-  <li><strong>Consent</strong> — for optional analytics (you can opt in or out at any time in app Settings), for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
-  <li><strong>Legal obligation</strong> — to comply with applicable laws and respond to valid legal requests</li>
+  <li><strong>Performance of a contract</strong>: to provide the Voltresso service you signed up for (account, brewing data sync, in-app features)</li>
+  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, and fix bugs (Sentry error monitoring)</li>
+  <li><strong>Consent</strong>: for analytics (off by default; on only if you switch it on in Settings, and you can withdraw it at any time by switching it off), for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
+  <li><strong>Legal obligation</strong>: to comply with applicable laws and respond to valid legal requests</li>
 </ul>
 
 <h2>5. Who we share data with</h2>
@@ -187,7 +198,7 @@
     <tr><td>Supabase</td><td>Database, authentication, file storage, edge functions</td><td>EU (Ireland)</td></tr>
     <tr><td>Anthropic</td><td>AI processing for Volt Pro (paid tier only)</td><td>United States</td></tr>
     <tr><td>Sentry</td><td>Crash and error monitoring</td><td>United States</td></tr>
-    <tr><td>PostHog</td><td>Product analytics (opt-in/out in Settings)</td><td>United States</td></tr>
+    <tr><td>PostHog</td><td>Product analytics, only if you switch Analytics on in Settings</td><td>United States</td></tr>
     <tr><td>Google Custom Search</td><td>Web search results for Volt free tier</td><td>Global</td></tr>
     <tr><td>Google OAuth</td><td>Sign in with Google (if you choose this method)</td><td>Global</td></tr>
     <tr><td>Open Food Facts</td><td>Coffee bag barcode lookup</td><td>EU (France)</td></tr>
@@ -204,7 +215,7 @@
 
 <h2>6. International data transfers</h2>
 <p>Voltresso's primary user data (your account, brewing data, custom recipes, saved beans, settings) is stored in <strong>the European Union (Ireland)</strong> on Supabase infrastructure.</p>
-<p>Some of our service providers are located outside the EU (primarily the United States). When we transfer data to these providers — for example, error reports to Sentry, analytics events to PostHog, AI processing to Anthropic — we rely on the European Commission's <strong>Standard Contractual Clauses (SCCs)</strong>, which are included in our agreements with these providers.</p>
+<p>Some of our service providers are located outside the EU (primarily the United States). When we transfer data to these providers (for example, error reports to Sentry, analytics events to PostHog, AI processing to Anthropic), we rely on the European Commission's <strong>Standard Contractual Clauses (SCCs)</strong>, which are included in our agreements with these providers.</p>
 
 <h2>7. How long we keep your data</h2>
 <p>We keep your data for as long as your Voltresso account is active. When you delete your account (see Section 10 below), we delete the data we control as described in this policy.</p>
@@ -219,7 +230,7 @@
 <h2>8. AI processing disclosure</h2>
 <p>Voltresso uses artificial intelligence in two distinct ways:</p>
 <p><strong>Volt Local (free tier)</strong>: A deterministic, on-device assistant. It does not call any AI API. Your conversations with Volt Local never leave your device.</p>
-<p><strong>Volt Pro (paid tier — not yet live)</strong>: When activated, Volt Pro uses <strong>Claude (Anthropic's large language model)</strong>. The data sent to Anthropic is described in Section 3.4 above. Volt Pro's output is intended as brewing advice and educational content. It is not infallible. Do not rely on Volt's responses for medical, legal, financial, or other consequential decisions.</p>
+<p><strong>Volt Pro (paid tier, not yet live)</strong>: When activated, Volt Pro uses <strong>Claude (Anthropic's large language model)</strong>. The data sent to Anthropic is described in Section 3.4 above. Volt Pro's output is intended as brewing advice and educational content. It is not infallible. Do not rely on Volt's responses for medical, legal, financial, or other consequential decisions.</p>
 <p>You can opt out of Volt Pro at any time by not subscribing, by canceling your subscription, or by deleting your account. The free tier of Volt (Volt Local) does not involve any external AI service.</p>
 
 <h2>9. Children</h2>
@@ -230,11 +241,11 @@
 <h3>10.1 Universal rights</h3>
 <p>Regardless of where you live, you can:</p>
 <ul>
-  <li><strong>Access</strong> your data — much of it is visible to you directly in the app; for anything else, email voltresso@zohomail.eu</li>
-  <li><strong>Correct</strong> inaccurate data — update your profile, brew logs, recipes, and settings directly in the app, or email us</li>
-  <li><strong>Delete</strong> your account and the data we control — use the Delete Account option in Settings, or email us</li>
-  <li><strong>Export</strong> a copy of your data — email us and we'll provide it in a standard format</li>
-  <li><strong>Opt out of analytics</strong> — toggle Analytics off in Settings</li>
+  <li><strong>Access</strong> your data: much of it is visible to you directly in the app; for anything else, email voltresso@zohomail.eu</li>
+  <li><strong>Correct</strong> inaccurate data: update your profile, brew logs, recipes, and settings directly in the app, or email us</li>
+  <li><strong>Delete</strong> your account and the data we control: use the Delete Account option in Settings, or email us</li>
+  <li><strong>Export</strong> a copy of your data: email us and we'll provide it in a standard format</li>
+  <li><strong>Withdraw analytics consent</strong>: toggle Analytics off in Settings</li>
 </ul>
 
 <h3>10.2 Account deletion: scope</h3>
@@ -251,7 +262,7 @@
 <div class="note">
 <p><strong>Important: third-party processor data.</strong> Some data held by third-party processors is not automatically erased by deleting your Voltresso account, because we cannot directly delete records inside their systems:</p>
 <ul>
-  <li><strong>PostHog</strong> retains anonymous analytics events per their retention policy</li>
+  <li><strong>PostHog</strong> retains analytics events (linked to your account ID if you were signed in) per their retention policy</li>
   <li><strong>Sentry</strong> retains anonymized error events per their retention policy</li>
   <li><strong>Anthropic</strong> may retain Volt Pro transcripts for up to 30 days per their standard API terms</li>
   <li><strong>Google Play / RevenueCat</strong> retain billing and entitlement records per their policies (when Pro launches)</li>
@@ -264,14 +275,14 @@
 <ul>
   <li><strong>Restrict</strong> processing in certain circumstances</li>
   <li><strong>Object</strong> to processing based on legitimate interests</li>
-  <li><strong>Data portability</strong> — receive your data in a structured, machine-readable format</li>
+  <li><strong>Data portability</strong>: receive your data in a structured, machine-readable format</li>
   <li><strong>Withdraw consent</strong> at any time for consent-based processing</li>
   <li><strong>Lodge a complaint</strong> with your local data protection authority</li>
 </ul>
 <p>To exercise any of these rights, email voltresso@zohomail.eu.</p>
 
 <h3>10.4 California rights (CCPA/CPRA)</h3>
-<p>If you are a California resident, you have additional rights including the right to know, the right to delete, the right to correct, the right to opt-out of "sale" or "sharing" of your personal information (we do not sell or share for cross-context behavioral advertising — see Section 5), the right to limit use of sensitive personal information (we do not collect sensitive personal information as defined under CCPA), and the right to non-discrimination for exercising your rights.</p>
+<p>If you are a California resident, you have additional rights including the right to know, the right to delete, the right to correct, the right to opt-out of "sale" or "sharing" of your personal information (we do not sell or share for cross-context behavioral advertising; see Section 5), the right to limit use of sensitive personal information (we do not collect sensitive personal information as defined under CCPA), and the right to non-discrimination for exercising your rights.</p>
 <p>Submit a verifiable consumer request by emailing voltresso@zohomail.eu with the subject "California Privacy Request".</p>
 
 <h3>10.5 Other US state rights</h3>
@@ -282,7 +293,7 @@
 
 <h2>11. Cookies and tracking on our website</h2>
 <p>The marketing website at <a href="https://voltresso.vercel.app">voltresso.vercel.app</a> uses a consent banner (provided by Termly) to manage cookies. Essential cookies (for site functionality and consent preferences) are always on. Any optional cookies require your explicit consent, which you can change at any time via the "Consent Preferences" link in the website footer.</p>
-<p>The mobile app does not use cookies in the traditional sense. App-level preferences (whether you've completed onboarding, your settings choices, your local cache of brewing data) are stored using your device's standard local storage and remain on your device unless you sign out or delete the app.</p>
+<p>The mobile app does not use cookies in the traditional sense. App-level preferences (whether you've completed onboarding, your settings choices, your local cache of brewing data) are stored using your device's standard local storage and remain on your device until you delete the app; signing out keeps them (see Section 3.3).</p>
 
 <h2>12. Security</h2>
 <p>We use reasonable technical and organizational measures to protect your data, including:</p>
@@ -307,7 +318,7 @@
 
 <footer>
 <p>Voltresso · Tarek Sayed · Serbia<br>
-Privacy Policy v1.0 · Effective June 21, 2026<br>
+Privacy Policy v1.0.1 · Effective November 15, 2026<br>
 <a href="terms.html">Terms of Service</a> · <a href="https://voltresso.vercel.app">Voltresso website</a></p>
 </footer>
 
