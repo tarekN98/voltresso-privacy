@@ -86,3 +86,21 @@ The founder updated the Play form on 2026-11-14 (`play-data-safety.md`, "Submitt
 - **Question:** The refine-v2 build requests `ACCESS_FINE_LOCATION` as well as `ACCESS_COARSE_LOCATION` (`app.json` `android.permissions`). The precise position never leaves the phone (`lib/use-device-location.ts`): it centres the map and sorts by distance. The tile provider sees only the map area shown (zoom 14, `components/cafes/CafeMap.tsx`). Is "Precise location: not collected" correct on the Play form and in the policy? Or does requesting the fine permission, or tiles centred on the user, require declaring it?
 - **Why it matters:** it changes the store listing and the policy. The safe alternative is to request `ACCESS_COARSE_LOCATION` only; the map still works with approximate centring.
 - **Where:** `app.json` (`android.permissions`, `blockedPermissions`, `expo-location` plugin: no background location); `play-data-safety.md` "Release checklist: café map build to Play"; policy section 3.9.
+
+## 13. Eligibility age and age confirmation
+
+- **Question:** Is 16 the right minimum age for Voltresso? It matches the Play Console target audience ("16 and older"). Should the App ask users to confirm their age at sign-up (a checkbox or a date of birth), or is the statement in the terms enough? Do the digital-consent ages in the target countries change this (Serbia, Egypt, EU member states between 13 and 16)?
+- **Why it matters:** the terms said 18 and the policy said "not directed at children under 18"; both drafts now say 16. The App has no age question or age gate. Analytics consent from a minor may need a parent where the local age is above 16.
+- **Where:** terms PR #3 Section 3; privacy PR #1 Section 9; `app/login.tsx` and `app/onboarding.tsx` (no age check); Play Console > App content > Target audience.
+
+## 14. Map-data accuracy disclaimer and ODbL wording
+
+- **Question:** Is the terms disclaimer enough (listings may be incomplete or wrong; not an endorsement or partnership; third-party map apps under their own terms)? Does the attribution "© OpenStreetMap contributors, Open Database License (ODbL)" with links meet the ODbL? Are bundled city packs a "Derivative Database" (share-alike) or a "Produced Work" (attribution only)? See also item 6.
+- **Why it matters:** cafés are shown on a map with directions. Wrong or closed listings, and an implied endorsement, are the main risks.
+- **Where:** terms PR #3 Section 10; privacy PR #1 3.9 and section 5 note; `lib/map-config.ts` `OSM_ATTRIBUTION`; `scripts/data/build-cafe-pack.mjs`.
+
+## 15. Licence for machine and café suggestions
+
+- **Question:** Is the licence in the terms right? It is worldwide, non-exclusive, royalty-free and **perpetual**, covering use, editing, combining with other data and publishing after review. Should it survive account deletion, given that the brand/model and café name stay after unlinking? Is the moderation wording adequate (we may edit, merge, decline or remove; 5 per day)?
+- **Why it matters:** suggestions become part of the public catalogue and map, and outlive the user's account.
+- **Where:** terms PR #3 Section 7 and 14; migrations `20261112000100_user_machines_and_submissions.sql` (rate limit, unlink trigger) and `20261112000200_cafes.sql`.

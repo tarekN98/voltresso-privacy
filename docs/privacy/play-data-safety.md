@@ -48,6 +48,10 @@ Play's form has no separate "linked to the user" question, so that worksheet fie
 
 ## Release checklist: café map build to Play
 
+**Everything goes live together.** The Data safety form, the privacy policy (PR #1, `privacy/refine-v2`), the terms (PR #3, `terms/refine-v2`) and the café map build are released **in the same submission**. None of them goes live without the others: merge both policy PRs to GitHub Pages and update the form in the same Play submission that carries the build, then send that one submission for review.
+
+All four say the same about location: the app requests coarse and fine location (`ACCESS_COARSE_LOCATION`, `ACCESS_FINE_LOCATION`), **foreground only**; the phone may allow approximate only; the **position never leaves the phone**; the map **tile provider sees the IP address and the area on screen**, not the position. Sources: privacy PR #1 (box, 3.9), terms PR #3 (Section 2), the in-app notice (`components/WhatsNewNotice.tsx`, voltresso `d0eb85e`), this checklist.
+
 The refine-v2 build adds the café map. Its Android manifest requests `ACCESS_COARSE_LOCATION` and `ACCESS_FINE_LOCATION` (`app.json` `android.permissions`), foreground only: `ACCESS_BACKGROUND_LOCATION` is in `blockedPermissions`, and the `expo-location` plugin sets `isAndroidBackgroundLocationEnabled: false` and `isAndroidForegroundServiceEnabled: false`. The app reads one position with `requestForegroundPermissionsAsync` and `getCurrentPositionAsync({ accuracy: Balanced })` (`lib/use-device-location.ts`). It keeps that position on the phone and never sends it anywhere. None of the live builds (`19d16f6`, `f23b24c`) declares any location permission or includes `expo-location`.
 
 1. **Before uploading the refine-v2 build to any Play track** (internal testing, closed, open or production), in the **same submission** as the build, update the Data safety form:
@@ -55,7 +59,7 @@ The refine-v2 build adds the café map. Its Android manifest requests `ACCESS_CO
    - Add machine and café **suggestions** under App activity > Other user-generated content: already declared (collected, not shared, optional, App functionality). Check that the answers still fit; no new row is needed.
 2. **Precise location:** our reading is **not collected**, so it is not declared. The precise position never leaves the phone, and tiles reveal only the area shown (zoom 14, roughly a 2.4 km tile). But the build does request `ACCESS_FINE_LOCATION`. Confirm with the lawyer (`lawyer-review.md` item 12), or drop `ACCESS_FINE_LOCATION` from `app.json` so the build asks for approximate location only. The map would still work, just less exactly centred.
 3. **Location permissions declaration:** Play may also ask about location permissions (App content). Foreground only, no background location, so no background-location declaration should be needed. Check what Play Console asks when the build is uploaded.
-4. **Privacy policy:** the location and map sections of privacy PR #1 (`privacy/refine-v2`) must be **published** (merged to GitHub Pages) **before** that build reaches any tester.
+4. **Privacy policy and terms:** privacy PR #1 (location and map sections) and terms PR #3 must be **published** (merged to GitHub Pages) **in the same release** as the build and the form, and before that build reaches any tester.
 5. **Founder testing before that:** an **internal preview APK** (EAS `preview` profile, sideloaded, not uploaded to Play) needs **no** form change.
 
 ## How Google's definitions apply (short version)
