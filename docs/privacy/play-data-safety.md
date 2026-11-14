@@ -61,6 +61,7 @@ The refine-v2 build adds the café map. Its Android manifest requests `ACCESS_CO
 3. **Location permissions declaration:** Play may also ask about location permissions (App content). Foreground only, no background location, so no background-location declaration should be needed. Check what Play Console asks when the build is uploaded.
 4. **Privacy policy and terms:** privacy PR #1 (location and map sections) and terms PR #3 must be **published** (merged to GitHub Pages) **in the same release** as the build and the form, and before that build reaches any tester.
 5. **Founder testing before that:** an **internal preview APK** (EAS `preview` profile, sideloaded, not uploaded to Play) needs **no** form change.
+6. **Target audience.** At the café-map release, move the Play target audience from 18+ to 16+ only if the lawyer approved 16 (lawyer item 13). Until then Play says 18 and over (set 2026-11-14, not yet sent for review) while the draft terms and policy say 16 (TO CONFIRM).
 
 ## How Google's definitions apply (short version)
 
