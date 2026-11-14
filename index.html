@@ -71,7 +71,7 @@
 <header>
   <div class="eyebrow">VOLTRESSO</div>
   <h1>Privacy Policy</h1>
-  <p class="effective">Effective: November 12, 2026 · Last updated: November 12, 2026</p>
+  <p class="effective">Effective: November 15, 2026 · Last updated: November 15, 2026</p>
 </header>
 
 <p>This Privacy Policy explains what personal information Voltresso collects, how we use it, who we share it with, and what rights you have. We've tried to write it in plain language. If anything is unclear, email us at <a href="mailto:voltresso@zohomail.eu">voltresso@zohomail.eu</a>.</p>
@@ -81,7 +81,7 @@
 <ul>
   <li>We now list the answers you give during sign-up (your starting level and how often you brew), which are saved to your profile. See Section 3.2.</li>
   <li>We corrected what happens when you sign out: data kept only on your phone stays there until you uninstall the app, except your Volt chat history, which is deleted from the phone. See Section 3.3.</li>
-  <li>We corrected how analytics works: analytics is on by default, you can turn it off in Settings, and when you are signed in the app links analytics events to your account ID (a random identifier, never your email or name). An update will soon ask for your permission first. See Section 3.7.</li>
+  <li>Analytics is now <strong>off by default</strong>. Nothing is sent to our analytics provider unless you switch Analytics on in Settings. When it is on and you are signed in, analytics events are linked to your account ID (a random identifier, never your email or name). See Section 3.7.</li>
 </ul>
 </div>
 
@@ -163,10 +163,10 @@
 <p>When the free tier of Volt performs a web search for product or coffee information, your search query is sent to <strong>Google Custom Search</strong> (Google's search API). The search query itself and the requesting IP address are visible to Google. We do not send your account information to Google.</p>
 
 <h3>3.7 Device and usage data</h3>
-<p>Analytics is <strong>on by default</strong>. You can turn it off at any time in Settings; the app then stops sending analytics events. An upcoming app update will ask for your permission before any analytics is collected. While analytics is on:</p>
+<p>Analytics is <strong>off by default</strong>. The app sends nothing to our analytics provider unless you switch Analytics on in Settings. You can switch it off again at any time; the app then stops sending analytics events and resets the link to your account. (Some older test versions of the app had analytics on by default.) While analytics is on:</p>
 <ul>
   <li><strong>PostHog</strong> (our analytics provider) automatically receives data about device model, operating system version, app version, locale, timezone, screen size, network type, and a random device identifier. PostHog also receives the names of events that occur in the app (e.g., "sign_up", "brew_logged", "recipe_saved") with minimal context.</li>
-  <li>When you are signed in, the app links these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices (some older test versions of the app do not do this). We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
+  <li>When you are signed in, the app links these events to your <strong>account ID</strong>, the random identifier of your Voltresso account, so we can understand how the app is used across sessions and devices. We do <strong>not</strong> attach your email or name to PostHog events. When you sign out, the link is reset and later events use a new random identifier.</li>
 </ul>
 
 <p>For diagnostic purposes (always-on, used to fix bugs):</p>
@@ -182,8 +182,8 @@
 <p>If you are in the EU, UK, or another GDPR-applicable jurisdiction, we rely on the following legal bases:</p>
 <ul>
   <li><strong>Performance of a contract</strong>: to provide the Voltresso service you signed up for (account, brewing data sync, in-app features)</li>
-  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, fix bugs (Sentry error monitoring), and improve the product (analytics, which is on by default and can be turned off in Settings) [TO CONFIRM: legal basis for analytics, under legal review; an upcoming update will ask for permission before any analytics is collected]</li>
-  <li><strong>Consent</strong>: for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
+  <li><strong>Legitimate interests</strong>: to monitor security, prevent abuse, and fix bugs (Sentry error monitoring)</li>
+  <li><strong>Consent</strong>: for analytics (off by default; on only if you switch it on in Settings, and you can withdraw it at any time by switching it off), for marketing or feedback emails if we ever send any, and for Volt Pro processing (opt-in via subscription)</li>
   <li><strong>Legal obligation</strong>: to comply with applicable laws and respond to valid legal requests</li>
 </ul>
 
@@ -198,7 +198,7 @@
     <tr><td>Supabase</td><td>Database, authentication, file storage, edge functions</td><td>EU (Ireland)</td></tr>
     <tr><td>Anthropic</td><td>AI processing for Volt Pro (paid tier only)</td><td>United States</td></tr>
     <tr><td>Sentry</td><td>Crash and error monitoring</td><td>United States</td></tr>
-    <tr><td>PostHog</td><td>Product analytics (on by default; can be turned off in Settings)</td><td>United States</td></tr>
+    <tr><td>PostHog</td><td>Product analytics, only if you switch Analytics on in Settings</td><td>United States</td></tr>
     <tr><td>Google Custom Search</td><td>Web search results for Volt free tier</td><td>Global</td></tr>
     <tr><td>Google OAuth</td><td>Sign in with Google (if you choose this method)</td><td>Global</td></tr>
     <tr><td>Open Food Facts</td><td>Coffee bag barcode lookup</td><td>EU (France)</td></tr>
@@ -245,7 +245,7 @@
   <li><strong>Correct</strong> inaccurate data: update your profile, brew logs, recipes, and settings directly in the app, or email us</li>
   <li><strong>Delete</strong> your account and the data we control: use the Delete Account option in Settings, or email us</li>
   <li><strong>Export</strong> a copy of your data: email us and we'll provide it in a standard format</li>
-  <li><strong>Opt out of analytics</strong>: toggle Analytics off in Settings</li>
+  <li><strong>Withdraw analytics consent</strong>: toggle Analytics off in Settings</li>
 </ul>
 
 <h3>10.2 Account deletion: scope</h3>
@@ -318,7 +318,7 @@
 
 <footer>
 <p>Voltresso · Tarek Sayed · Serbia<br>
-Privacy Policy v1.0.1 · Effective November 12, 2026<br>
+Privacy Policy v1.0.1 · Effective November 15, 2026<br>
 <a href="terms.html">Terms of Service</a> · <a href="https://voltresso.vercel.app">Voltresso website</a></p>
 </footer>
 
