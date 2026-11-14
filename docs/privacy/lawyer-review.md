@@ -46,6 +46,8 @@ For the lawyer reviewing the policy before the production release. **Nothing her
 
 ## 7. Children and age wording
 
+> Update (KAN-116): both drafts now say 16, not 18. The open questions are in item 13.
+
 - **Question:** The policy says the app is "not directed at children under 18". Is 18 the right threshold (EU digital-consent ages are 13 to 16; Serbia 15), and is a statement enough without an age check at sign-up? Does it match the Play Console target age group?
 - **Why it matters:** The app has no age question or age gate (no age check in `app/login.tsx` or onboarding). If minors can sign up, consent for analytics may need a parent.
 - **Where:** policy section 9 (no marker on the page); `terms.html` (has no age or eligibility clause); Play Console > App content > Target audience.
