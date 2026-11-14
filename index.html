@@ -79,7 +79,7 @@
 <div class="note">
 <p><strong>What changed in this update</strong></p>
 <ul>
-  <li><strong>Café map.</strong> A new map shows coffee places. If you allow it, the app uses your location while you use the map, only on your phone, to centre the map and sort cafés by distance. Your location is never sent to or stored on our servers. See Section 3.9.</li>
+  <li><strong>Café map.</strong> A new map shows coffee places. If you allow it, the app uses your location while you use the map, only on your phone, to centre the map and sort cafés by distance. Your position never leaves your phone; the map provider sees your IP address and the area shown on screen, not your position. See Section 3.9.</li>
   <li><strong>Map and café lists.</strong> Map images come from a map provider, which receives your IP address and the area shown. Café lists are included in the app, one per city, and are refreshed with app updates; your phone picks the city, and the app makes no request to our servers to get them. See Sections 3.9 and 5.</li>
   <li><strong>Things you suggest.</strong> You can suggest a missing coffee machine or café. Suggestions are stored on our servers, linked to your account, and reviewed before anything is public. If you delete your account they are unlinked from it. See Section 3.10.</li>
   <li><strong>Analytics now asks first.</strong> Analytics is off unless you say yes. The app asks once (new users during sign-up, existing users on the first open after this update), with nothing selected for you. You can change your answer in Settings. If you say yes, the "brew_logged" event also includes the roast level you picked. See Section 3.7.</li>
@@ -191,9 +191,9 @@
 <h3>3.9 Location and the café map</h3>
 <p>The app has a café map ("Cafés near me") that shows coffee places near you.</p>
 <ul>
-  <li><strong>When we ask.</strong> We ask for your location only when you open the café map, and only for "while using the app" access. The app does not use background location and does not use geofencing. You can say no and still use the map by picking a city.</li>
+  <li><strong>When we ask.</strong> We ask for your location only when you open the café map, and only for "while using the app" (foreground) access. The app asks for precise location; your phone may let you allow approximate location only, and the map still works. The app does not use background location and does not use geofencing. You can say no and still use the map by picking a city.</li>
   <li><strong>What it is used for.</strong> On your phone, your location is used to centre the map and to sort cafés by distance and walking time.</li>
-  <li><strong>What stays on your phone.</strong> Your location is never sent to our servers and never stored by us. It is not included in analytics or error reports. The app uses your position only while the map is open: to place you on the map and to measure distances.</li>
+  <li><strong>What stays on your phone.</strong> Your position never leaves your phone: it is not sent to our servers, not stored by us, and not included in analytics or error reports. The map provider sees your IP address and the area shown on screen, not your position (see Map tiles below). The app uses your position only while the map is open: to place you on the map and to measure distances.</li>
   <li><strong>How to turn it off.</strong> You can remove location access at any time in your phone's settings.</li>
 </ul>
 <p><strong>Map tiles.</strong> The map images ("tiles") are loaded from <strong>OpenFreeMap</strong>. When tiles load, OpenFreeMap receives your device's IP address and the map area being shown, as with any website or map you open. OpenFreeMap's privacy information: [TO CONFIRM: link to OpenFreeMap's privacy page]. We use it to provide the map you ask to see. [TO CONFIRM: legal basis, see Section 4]</p>
@@ -274,7 +274,7 @@
 <p>You can opt out of Volt Pro at any time by not subscribing, by canceling your subscription, or by deleting your account. The free tier of Volt (Volt Local) does not involve any external AI service.</p>
 
 <h2>9. Children</h2>
-<p>Voltresso is not directed at children under 18. We do not knowingly collect personal information from children. If you believe a child has provided us with personal information, please email voltresso@zohomail.eu and we will delete it.</p>
+<p>Voltresso is not directed at children. You must be at least 16 to use Voltresso (see our Terms of Service), and we do not knowingly collect personal information from anyone under 16. [TO CONFIRM: minimum age 16, matching the Google Play target audience, and whether sign-up needs an age confirmation] If you believe a child has provided us with personal information, please email voltresso@zohomail.eu and we will delete it.</p>
 
 <h2>10. Your rights</h2>
 
