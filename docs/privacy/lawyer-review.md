@@ -106,3 +106,12 @@ The founder updated the Play form on 2026-11-14 (`play-data-safety.md`, "Submitt
 - **Question:** Is the licence in the terms right? It is worldwide, non-exclusive, royalty-free and **perpetual**, covering use, editing, combining with other data and publishing after review. Should it survive account deletion, given that the brand/model and café name stay after unlinking? Is the moderation wording adequate (we may edit, merge, decline or remove; 5 per day)?
 - **Why it matters:** suggestions become part of the public catalogue and map, and outlive the user's account.
 - **Where:** terms PR #3 Section 7 and 14; migrations `20261112000100_user_machines_and_submissions.sql` (rate limit, unlink trigger) and `20261112000200_cafes.sql`.
+
+## 16. Live policy for version 13 (privacy PR #2): open questions moved here
+
+PR #2 (`privacy/fix-current`) describes closed-test version 13 (voltresso `hotfix/closed-test-1`, KAN-115), has no TO CONFIRM markers and takes effect on 2026-11-15. Its open legal points are here instead:
+
+- **Consent as the basis for analytics in version 13.** Analytics is off by default and on only if the user switches the Settings toggle on. There is no separate consent screen; the toggle text says what is sent (PostHog, linked to the account's random ID). Is a Settings toggle with that text valid consent (informed, specific, unambiguous), or is a dedicated prompt needed? Refine v2 adds a one-time Yes/No prompt (item 1).
+- **Older test APKs** (1 November builds) had analytics on by default. The policy notes this in one line. Is anything else needed for events already collected from those testers (deletion, notice)?
+- **Effective date 2026-11-15** with no advance notice to testers. Is that acceptable for a closed test, given the change reduces collection?
+- Carried over from PR #2: PostHog processor terms and US transfer (item 3), Supabase terms (item 4), children/age wording (items 7 and 13; PR #2 keeps 18, matching the live terms and the Play target audience), retention (item 8), governing law (item 9).
